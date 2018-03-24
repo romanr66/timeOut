@@ -51,8 +51,8 @@
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahV-xw-o3C">
-                                <rect key="frame" x="123" y="257" width="34" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahV-xw-o3C">
+                                <rect key="frame" x="123" y="257" width="34" height="23"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="startTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0jC-T7-0L0"/>
@@ -88,6 +88,8 @@
                         <outlet property="listKIds" destination="BmE-KJ-T2f" id="WRo-2o-a7W"/>
                         <outlet property="minutes1" destination="iSo-DI-A6P" id="lDW-QA-OsU"/>
                         <outlet property="minutes2" destination="RhV-EC-0Lu" id="VpO-Bh-raf"/>
+                        <outlet property="nameKId" destination="G5o-hH-WZC" id="jCe-Ma-4CC"/>
+                        <outlet property="startTimerLbl" destination="ahV-xw-o3C" id="Dqi-x2-X6S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

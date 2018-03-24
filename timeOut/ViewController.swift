@@ -7,31 +7,89 @@
 //
 
 import UIKit
-
+import UserNotifications
 class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+    var displayTimer: Timer!
+    @IBOutlet weak var startTimerLbl: UIButton!
+    @IBOutlet weak var nameKId: UILabel!
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
+        return arrayKids.count
     }
-    // The data to return for the row and component (column) that's being passed in
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
+     @objc func runTimedCode(){
+        for name in arrayKids {
+            if name.getTimerEnabled()==true && nameKId.text == name.getName() {
+                time=name.getTime()
+              
+                switch time{
+                case 12:
+                    minutes2.text="1"
+                    minutes1.text="2"
+                case 11:
+                    minutes2.text="1"
+                    minutes1.text="1"
+                case 10:
+                    minutes2.text="1"
+                    minutes1.text="0"
+                default:
+                    minutes2.text="0"
+                    minutes1.text=String(time)
+                }
+             
+            }
+        }
+    }// The data to return for the row and component (column) that's being passed in
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        nameKId.text=arrayKids[row].getName()
+        if arrayKids[row].getTimerEnabled()==false{
+            startTimerLbl.isEnabled=true
+            
+        }
+        else{
+            startTimerLbl.isEnabled=false
+        }
+        time=arrayKids[row].getTime()
+        switch time{
+        case 12:
+            minutes2.text="1"
+            minutes1.text="2"
+        case 11:
+            minutes2.text="1"
+            minutes1.text="1"
+        case 10:
+            minutes2.text="1"
+            minutes1.text="0"
+        default:
+            minutes2.text="0"
+            minutes1.text=String(time)
+        }
+    }
+   func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    
+    
+        return arrayKids[row].getName()
     }
     var  time=12
     var gameTimer: Timer!
-    var pickerData: [String] = [String]()
+    var arrayKids = [Kid]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+        }
          minutes1.text=String(time)
          minutes2.text=String(time)
         // Do any additional setup after loading the view, typically from a nib.
         minutes1.baselineAdjustment = .alignCenters
-       pickerData = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"]
+        arrayKids.append(Kid(fromName:"Jay",fromAge:7,fromTimerStart:false,fromTimer:7))
+        arrayKids.append(Kid(fromName:"Jhon",fromAge:8,fromTimerStart:false,fromTimer:8))
+        arrayKids.append(Kid(fromName:"Jim",fromAge:9,fromTimerStart:false,fromTimer:2))
         self.listKIds.delegate = self
         self.listKIds.dataSource = self
+        displayTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+        
     }
 
     @IBOutlet weak var listKIds: UIPickerView!
@@ -43,27 +101,16 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var minutes1: UILabel!
     
     @IBAction func startTimer(_ sender: UIButton) {
-        gameTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+       
+        for name in arrayKids {
+            if name.getName() == nameKId.text {
+                name.setTimerEnabled(fromTimer:true)
+                 startTimerLbl.isEnabled=false
+            }
+        }
         
         
     }
-@objc func runTimedCode(){
-        time=time-1
-    switch time{
-    case 12:
-        minutes2.text="1"
-         minutes1.text="2"
-    case 11:
-        minutes2.text="1"
-        minutes1.text="1"
-    case 10:
-        minutes2.text="1"
-        minutes1.text="0"
-    default:
-        minutes2.text="0"
-        minutes1.text=String(time)
-        
-    }
-    }
+
 }
 
