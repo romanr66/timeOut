@@ -8,8 +8,23 @@
 
 import Foundation
 import UserNotifications
-
-class Kid {
+import UIKit
+class Kid{
+    public var  timeWentToSleep:NSDate;
+    var isTimerExpired : Bool = false
+    public func getTimerExpired()->Bool{
+        return isTimerExpired
+    }
+    public func setTimeWentToSleep(fromDate dt:NSDate){
+        timeWentToSleep=dt
+        
+    }
+    public func getTimeWentToSleep() -> NSDate{
+        return self.timeWentToSleep
+    }
+    public func setTimerexpired(fromtimerExpired time:Bool){
+        self.isTimerExpired=time
+    }
     var timeOutTimer: Timer!
     private var time : Int=0
     public  func  getTime() ->Int {
@@ -27,11 +42,26 @@ class Kid {
     public func getAge () -> Int {
         return age;
     }
+    public func setAge (formAge age:Int){
+        self.age=age
+    }
+    public func resetAge(){
+        self.time=age
+    }
     private var startTimer:Bool
     public func getTimerEnabled () -> Bool {
         return startTimer;
     }
+    public func stopTime(){
+        timeOutTimer.invalidate()
+        
+    }
+    public func setTimerEnabledOnly(fromTimer timer:Bool)
+    {
+      startTimer=timer
+    }
     public func setTimerEnabled (fromTimer timer:Bool) {
+        self.isTimerExpired=false
         startTimer=timer;
         timeOutTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
         let notif = UNMutableNotificationContent()
@@ -40,7 +70,7 @@ class Kid {
         notif.body = "Time Out for Child " + name + " expired !!!"
         
         let notifTrigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(time*60), repeats: false)
-        let request = UNNotificationRequest(identifier: "myNotification", content:  notif, trigger: notifTrigger)
+        let request = UNNotificationRequest(identifier: name, content:  notif, trigger: notifTrigger)
         
         UNUserNotificationCenter.current().add(request) { (error) in
             if error != nil{
@@ -52,14 +82,13 @@ class Kid {
         }
     }
             
-    
+ 
     init(fromName name:String,fromAge age:Int , fromTimerStart startTimer:Bool, fromTimer time:Int){
         self.name=name
         self.age=age
         self.startTimer=startTimer
         self.time=time
-        
-        
+        timeWentToSleep=NSDate()
         
     
     }
@@ -67,10 +96,13 @@ class Kid {
         if(time > 0){
           time=time-1
         }
-        else
+        if (time==0)
         {
             timeOutTimer.invalidate()
+            self.isTimerExpired=true
         }
+            
+           
     }
     
 }
