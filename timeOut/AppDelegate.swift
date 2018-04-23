@@ -30,7 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         let viewController = self.window?.rootViewController as? ViewController
         for name in  (viewController?.arrayKids)! {
-            name.setTimeWentToSleep(fromDate:NSDate())
+             if (name.getTimerEnabled()==true){
+                    name.setTimeWentToSleep(fromDate:NSDate())
+                    name.stopTime()
+            }
         }
        
     }
@@ -46,16 +49,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     continue
                 }
                 let dateDiff=now.timeIntervalSince(date)
-                let res = (dateDiff/60).rounded(.up)
-                let res1=name.getTime()-Int(res)
-                    if(res1<0){
-                        name.setTime(frimTime: 0)
-                    }
-                    else {
-                        name.setTime( frimTime: Int(res1))
-                    }
+                let dateDiffRnd=dateDiff.rounded(.up)
+                var seconds:Double=Double(name.getTime()*60+name.getSeconds())
+                var totalDiff=seconds-Double(dateDiffRnd)
+                var mins = 0
+                var secs = totalDiff
+                if totalDiff >= 60 {
+                    mins = Int(totalDiff / 60)
+                    secs = totalDiff - Double(mins * 60)
                 }
+                name.setTime(frimTime:mins)
+                name.setSeconds(seconds: Int(secs))
+                
+               
+                
+            
         }
+        viewController?.refersh()
+     }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

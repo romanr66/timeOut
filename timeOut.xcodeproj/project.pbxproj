@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5B567DCF2060B44800ECC6B5 /* Kid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B567DCE2060B44800ECC6B5 /* Kid.swift */; };
+		5BAEDED02086F9D500584DA5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAEDECF2086F9D500584DA5 /* MainTableViewController.swift */; };
+		5BAEDED2208AE5CA00584DA5 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAEDED1208AE5CA00584DA5 /* DetailTableViewController.swift */; };
 		5BF13FE9205EF87A00D1E5A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF13FE8205EF87A00D1E5A5 /* AppDelegate.swift */; };
 		5BF13FEB205EF87A00D1E5A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF13FEA205EF87A00D1E5A5 /* ViewController.swift */; };
 		5BF13FEE205EF87A00D1E5A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF13FEC205EF87A00D1E5A5 /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		5B567DCE2060B44800ECC6B5 /* Kid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kid.swift; sourceTree = "<group>"; };
+		5BAEDECF2086F9D500584DA5 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		5BAEDED1208AE5CA00584DA5 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		5BF13FE5205EF87A00D1E5A5 /* timeOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timeOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF13FE8205EF87A00D1E5A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BF13FEA205EF87A00D1E5A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,11 +108,13 @@
 				5BF13FE8205EF87A00D1E5A5 /* AppDelegate.swift */,
 				5BF13FEA205EF87A00D1E5A5 /* ViewController.swift */,
 				5BF13FEC205EF87A00D1E5A5 /* Main.storyboard */,
+				5BAEDED1208AE5CA00584DA5 /* DetailTableViewController.swift */,
 				5B567DCE2060B44800ECC6B5 /* Kid.swift */,
 				5BF13FF2205EF87A00D1E5A5 /* Assets.xcassets */,
 				5BF13FF4205EF87A00D1E5A5 /* LaunchScreen.storyboard */,
 				5BF13FF7205EF87A00D1E5A5 /* Info.plist */,
 				5BF13FEF205EF87A00D1E5A5 /* timeOut.xcdatamodeld */,
+				5BAEDECF2086F9D500584DA5 /* MainTableViewController.swift */,
 			);
 			path = timeOut;
 			sourceTree = "<group>";
@@ -265,9 +271,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BAEDED2208AE5CA00584DA5 /* DetailTableViewController.swift in Sources */,
 				5B567DCF2060B44800ECC6B5 /* Kid.swift in Sources */,
 				5BF13FF1205EF87A00D1E5A5 /* timeOut.xcdatamodeld in Sources */,
 				5BF13FEB205EF87A00D1E5A5 /* ViewController.swift in Sources */,
+				5BAEDED02086F9D500584DA5 /* MainTableViewController.swift in Sources */,
 				5BF13FE9205EF87A00D1E5A5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

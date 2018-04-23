@@ -9,11 +9,14 @@
 import UIKit
 import UserNotifications
 class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
+    @IBOutlet weak var secondsLbl: UILabel!
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     var semp : Bool = false
     var displayTimer: Timer!
+    var displaySecondsTimer: Timer!
+    var seconds : Int = 60;
     @IBAction func resetTimer(_ sender: Any) {
           for name in arrayKids {
             if name.getName()==nameKId.text{
@@ -40,6 +43,11 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         }
         startTimerLbl.isEnabled=true
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let count=MainTableViewController.models.count
+        print ("here")
+    }
     @IBAction func StopTimer(_ sender: UIButton) {
         for name in arrayKids {
             if name.getName() == nameKId.text {
@@ -55,6 +63,40 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var resetButton: UILabel!
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return arrayKids.count
+    }
+    func refersh() {
+        for name in arrayKids {
+            if name.getTimerEnabled()==true && nameKId.text == name.getName() {
+                time=name.getTime()
+                
+                switch time{
+                case 12:
+                    minutes2.text="1"
+                    minutes1.text="2"
+                case 11:
+                    minutes2.text="1"
+                    minutes1.text="1"
+                case 10:
+                    minutes2.text="1"
+                    minutes1.text="0"
+                default:
+                    minutes2.text="0"
+                    minutes1.text=String(time)
+                    if minutes2.text=="0" && minutes1.text=="0" {
+                        startTimerLbl.isEnabled=true
+                    }
+                    
+                }
+               secondsLbl.text=String(name.getSeconds())
+            }
+        }
+    }
+    @objc func runTimedSecCode(){
+        for name in arrayKids {
+            if name.getTimerEnabled()==true && nameKId.text == name.getName() {
+                secondsLbl.text=String(name.getSeconds())
+            }
+        }
     }
      @objc func runTimedCode(){
         for name in arrayKids {
@@ -146,6 +188,8 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
             startTimerLbl.isEnabled=true
             
         }
+        secondsLbl.text=String(arrayKids[row].getSeconds())
+        
     }
    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
     
@@ -155,8 +199,10 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     var  time=12
     var gameTimer: Timer!
     var arrayKids = [Kid]()
+    var models = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
         }
@@ -169,7 +215,9 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         arrayKids.append(Kid(fromName:"Jim",fromAge:1,fromTimerStart:false,fromTimer:1))
         self.listKIds.delegate = self
         self.listKIds.dataSource = self
-        displayTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+        displayTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+        displaySecondsTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(runTimedSecCode), userInfo: nil, repeats: true)
+        
         
     }
    
