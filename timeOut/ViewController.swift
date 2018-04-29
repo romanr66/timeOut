@@ -8,11 +8,13 @@
 
 import UIKit
 import UserNotifications
+import RealmSwift
 class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var secondsLbl: UILabel!
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+    @IBOutlet weak var picker: UIPickerView!
     var semp : Bool = false
     var displayTimer: Timer!
     var displaySecondsTimer: Timer!
@@ -45,8 +47,17 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let count=MainTableViewController.models.count
-        print ("here")
+        let matchedUsers = try! Realm().objects(kidRealm.self)
+        arrayKids.removeAll()
+        var temStr:String
+        for st in matchedUsers {
+         temStr=st.getName() + "  Age- " + String(st.getAge())  
+         MainTableViewController.models.append(temStr)
+    arrayKids.append(Kid(fromName:st.getName(),fromAge:st.getAge(),fromTimerStart:false,fromTimer:st.getAge()))
+        }
+        self.listKIds.delegate = self
+        self.listKIds.dataSource = self
+        showFirst()
     }
     @IBAction func StopTimer(_ sender: UIButton) {
         for name in arrayKids {
@@ -191,6 +202,32 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         secondsLbl.text=String(arrayKids[row].getSeconds())
         
     }
+    func showFirst(){
+        var index=picker.selectedRow(inComponent: 0)
+        if arrayKids.count > 0
+        {
+        time=arrayKids[index].getTime()
+        switch time{
+        case 12:
+            minutes2.text="1"
+            minutes1.text="2"
+        case 11:
+            minutes2.text="1"
+            minutes1.text="1"
+        case 10:
+            minutes2.text="1"
+            minutes1.text="0"
+        default:
+            minutes2.text="0"
+            minutes1.text=String(time)
+        }
+        if minutes2.text=="0" && minutes1.text=="0" {
+            startTimerLbl.isEnabled=true
+            
+        }
+        secondsLbl.text=String(arrayKids[0].getSeconds())
+        }
+    }
    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
     
     
@@ -210,9 +247,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
          minutes2.text=String(time)
         // Do any additional setup after loading the view, typically from a nib.
         minutes1.baselineAdjustment = .alignCenters
-        arrayKids.append(Kid(fromName:"Jay",fromAge:7,fromTimerStart:false,fromTimer:7))
-        arrayKids.append(Kid(fromName:"Jhon",fromAge:1,fromTimerStart:false,fromTimer:1))
-        arrayKids.append(Kid(fromName:"Jim",fromAge:1,fromTimerStart:false,fromTimer:1))
+       
         self.listKIds.delegate = self
         self.listKIds.dataSource = self
         displayTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
@@ -230,10 +265,16 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var minutes1: UILabel!
     
     @IBAction func startTimer(_ sender: UIButton) {
+        let realm = try! Realm()
        
         for name in arrayKids {
             if name.getName() == nameKId.text {
-                name.setTimerEnabled(fromTimer:true)
+                
+                 let timeOut = realm.objects(kidRealm.self).filter("name=='\(nameKId.text)'")
+                 try! realm.write {
+                 timeOut.first?.addDateTimeOut(fromDate: NSDate())
+                }
+                 name.setTimerEnabled(fromTimer:true)
                  startTimerLbl.isEnabled=false
             }
         }

@@ -9,6 +9,7 @@
 import Foundation
 import UserNotifications
 import UIKit
+import RealmSwift
 class Kid{
     var displayTimerSec: Timer!
     public var  timeWentToSleep:NSDate;
@@ -46,7 +47,7 @@ class Kid{
     public func getName () -> String {
         return name;
     }
-    private var age :Int
+    @objc private  dynamic var age :Int = 0
     public func getAge () -> Int {
         return age;
     }
@@ -115,6 +116,8 @@ class Kid{
         
     
     }
+    
+    
     @objc func runTimedCodeSec() {
         seconds = seconds - 1
         if seconds == 0 && time > 0{

@@ -132,6 +132,7 @@
                         <outlet property="minutes1" destination="iSo-DI-A6P" id="lDW-QA-OsU"/>
                         <outlet property="minutes2" destination="RhV-EC-0Lu" id="VpO-Bh-raf"/>
                         <outlet property="nameKId" destination="G5o-hH-WZC" id="jCe-Ma-4CC"/>
+                        <outlet property="picker" destination="BmE-KJ-T2f" id="jxx-QW-Mld"/>
                         <outlet property="resetButton" destination="iSo-DI-A6P" id="Fiw-ig-kkB"/>
                         <outlet property="secondsLbl" destination="kmo-Zb-yyh" id="B6w-jl-iu1"/>
                         <outlet property="startTimerLbl" destination="ahV-xw-o3C" id="Dqi-x2-X6S"/>

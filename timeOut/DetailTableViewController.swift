@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import RealmSwift
 class DetailTableViewController: UITableViewController {
 
     @IBOutlet weak var kidsAgeText: UITextField!
@@ -105,8 +105,13 @@ class DetailTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let realm = try! Realm()
         if segue.identifier == "save" {
             editedModel = editModelTextField.text! + "  Age- " + kidsAgeText.text!
+            try! realm.write() {
+                let kid = kidRealm(fromName: editModelTextField.text!,fromAge:Int(kidsAgeText.text!)!)
+                realm.add(kid)
+            }
         }
         
         
