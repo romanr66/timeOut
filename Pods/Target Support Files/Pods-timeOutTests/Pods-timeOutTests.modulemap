@@ -1,0 +1,6 @@
+framework module Pods_timeOutTests {
+  umbrella header "Pods-timeOutTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

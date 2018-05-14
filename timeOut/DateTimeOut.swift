@@ -9,9 +9,12 @@
 import UIKit
 import RealmSwift
 class DateTimeOut: Object {
-   @objc dynamic var created = NSDate()
-    convenience init(fromDate d:NSDate){
+   @objc dynamic var created = Date()
+    convenience init(fromDate d:Date){
         self.init()
         self.created=d
+    }
+    public func getDate()->Date{
+     return created
     }
 }

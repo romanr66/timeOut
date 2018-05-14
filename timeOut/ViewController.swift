@@ -266,13 +266,24 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     
     @IBAction func startTimer(_ sender: UIButton) {
         let realm = try! Realm()
-       
+        var dateStr = "2018-05-10"
+        
+        // Set date format
+        var dateFmt = DateFormatter()
+        dateFmt.timeZone = NSTimeZone.default
+        dateFmt.dateFormat =  "yyyy-MM-dd"
+        
+        // Get NSDate for the given string
+        let date = dateFmt.date(from: dateStr)
         for name in arrayKids {
             if name.getName() == nameKId.text {
+                let kid=KidsTimeOutRealm(fromName:name.getName(),fromDate: Date())
+               
                 
-                 let timeOut = realm.objects(kidRealm.self).filter("name=='\(nameKId.text)'")
+               // let dateTimeOut = DateTimeOut(fromDate:date!)
+               
                  try! realm.write {
-                 timeOut.first?.addDateTimeOut(fromDate: NSDate())
+                     realm.add(kid)
                 }
                  name.setTimerEnabled(fromTimer:true)
                  startTimerLbl.isEnabled=false

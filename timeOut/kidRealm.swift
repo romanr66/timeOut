@@ -14,21 +14,20 @@ import RealmSwift
 class kidRealm: Object {
     @objc dynamic  var age:Int = 0
     @objc dynamic  var name:String = ""
-    
+     
     let dateTimeouts = List<DateTimeOut>()
     convenience init(fromName  name : String, fromAge age :Int) {
         self.init()
         self.name=name
         self.age=age
     }
+    
     func getAge() ->Int{
         return age
     }
     func getName()->String{
         return name
     }
-    func addDateTimeOut(fromDate d:NSDate)
-    {
-        dateTimeouts.append(DateTimeOut(fromDate: d))
-    }
+    
+    
 }

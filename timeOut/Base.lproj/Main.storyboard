@@ -145,18 +145,93 @@
         <!--Item-->
         <scene sceneID="Usg-a0-wVv">
             <objects>
-                <viewController id="D3L-Uh-FVp" sceneMemberID="viewController">
+                <viewController id="D3L-Uh-FVp" customClass="graphTimeOutViewController" customModule="timeOut" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hMc-tc-ay2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u84-LO-qqR">
+                                <rect key="frame" x="67" y="43" width="240" height="289"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykU-Wg-Zwx">
+                                        <rect key="frame" x="34" y="26" width="37" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="doneBtn:" destination="D3L-Uh-FVp" eventType="touchUpInside" id="neP-md-9Vb"/>
+                                        </connections>
+                                    </button>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dac-Ot-hjC">
+                                        <rect key="frame" x="0.0" y="54" width="240" height="216"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="547209229.56451702">
+                                            <!--2018-05-05 10:33:49 +0000-->
+                                        </date>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Oi-HN-GN0">
+                                <rect key="frame" x="169" y="373" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editStartDate:" destination="D3L-Uh-FVp" eventType="editingDidBegin" id="QhP-tK-7vL"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNn-WE-w8S">
+                                <rect key="frame" x="44" y="378" width="91" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kth-zb-M5d">
+                                <rect key="frame" x="169" y="435" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="endDateText:" destination="D3L-Uh-FVp" eventType="editingDidBegin" id="RLi-pl-evd"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjl-RJ-1Dy">
+                                <rect key="frame" x="44" y="444" width="77" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Huy-57-2Eb">
+                                <rect key="frame" x="166" y="530" width="43" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Graph"/>
+                                <connections>
+                                    <action selector="GraphDoBtn:" destination="D3L-Uh-FVp" eventType="touchUpInside" id="Y8S-5f-CYn"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sEf-hq-QYn"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="UZI-E2-PXw"/>
+                    <connections>
+                        <outlet property="GrapthBtn" destination="Huy-57-2Eb" id="6Km-8z-NNH"/>
+                        <outlet property="datePicker" destination="dac-Ot-hjC" id="ryR-wD-x0C"/>
+                        <outlet property="editText" destination="3Oi-HN-GN0" id="Z8S-l9-okL"/>
+                        <outlet property="endDateTxt" destination="Kth-zb-M5d" id="DDT-mx-IH1"/>
+                        <outlet property="startDateTxt" destination="3Oi-HN-GN0" id="n7q-fw-s5C"/>
+                        <outlet property="viewContainerDate" destination="u84-LO-qqR" id="CFt-QO-4b9"/>
+                        <segue destination="eGe-lf-GCe" kind="presentation" identifier="graph" id="Zod-Aw-eAO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JdC-vN-rL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="866" y="107"/>
+            <point key="canvasLocation" x="951" y="117"/>
         </scene>
         <!--Main Table View Controller-->
         <scene sceneID="eGA-2C-bfG">
@@ -266,6 +341,42 @@
             </objects>
             <point key="canvasLocation" x="3274" y="81"/>
         </scene>
+        <!--Graph-->
+        <scene sceneID="Mcu-1Z-4U3">
+            <objects>
+                <viewController title="Graph" id="eGe-lf-GCe" customClass="ViewControllerGraph" customModule="timeOut" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yu2-Vj-TTm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rRJ-2t-oWf" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="43" y="113" width="288" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVV-xQ-XZO">
+                                <rect key="frame" x="100" y="75" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneBAction:" destination="eGe-lf-GCe" eventType="touchUpInside" id="xyU-5M-mrC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="gHy-L2-nI2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OLV-Ha-Azj"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="barChart" destination="rRJ-2t-oWf" id="0TP-m1-zkW"/>
+                        <outlet property="chartView" destination="rRJ-2t-oWf" id="eae-bT-3WI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ttV-hG-sFA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4968.8000000000002" y="72.413793103448285"/>
+        </scene>
         <!--Children-->
         <scene sceneID="Z2J-Bm-fGe">
             <objects>
@@ -290,6 +401,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0hS-P4-hah"/>
+        <segue reference="gvo-E1-Pri"/>
     </inferredMetricsTieBreakers>
 </document>
