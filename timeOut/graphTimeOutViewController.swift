@@ -31,7 +31,10 @@ class graphTimeOutViewController: UIViewController {
    
     
     @IBOutlet weak var editText: UITextField!
-    
+    override func viewWillAppear(_ animated: Bool) {
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait)
+        
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print(segue.identifier)
         let viewControllerGraph = segue.destination as! ViewControllerGraph

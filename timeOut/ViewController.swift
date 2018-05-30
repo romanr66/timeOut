@@ -9,6 +9,7 @@
 import UIKit
 import UserNotifications
 import RealmSwift
+import AVFoundation
 class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var secondsLbl: UILabel!
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -19,12 +20,16 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     var displayTimer: Timer!
     var displaySecondsTimer: Timer!
     var seconds : Int = 60;
+  
+   
+
     @IBAction func resetTimer(_ sender: Any) {
-          for name in arrayKids {
+          for name in KIdsArraySinglton.getArrayKids() {
             if name.getName()==nameKId.text{
                 name.resetAge()
             
             time=name.getTime()
+            
             switch time{
             case 12:
                 minutes2.text="1"
@@ -41,42 +46,75 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                
             }
               name.setTimerEnabledOnly(fromTimer: false)
+            secondsLbl.text=String("60")
+                name.setTime(frimTime: time);
+                name.setSeconds(seconds: 60)
             }
         }
         startTimerLbl.isEnabled=true
     }
+    override func viewWillAppear(_ animated: Bool) {
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
+       
+    }
+    func applicationWillEnterForeground(application: UIApplication) {
+        
+        // app will enter in foreground
+        // this method is called on first launch when app was closed / killed and every time app is reopened or change status from background to foreground (ex. mobile call)
+        refersh()
+    }
+    
+    func applicationDidBecomeActive(application: UIApplication) {
+        
+        // app becomes active
+        // this method is called on first launch when app was closed / killed and every time app is reopened or change status from background to foreground (ex. mobile call)
+        refersh()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let matchedUsers = try! Realm().objects(kidRealm.self)
-        arrayKids.removeAll()
+        KIdsArraySinglton.removeAll()
         var temStr:String
         for st in matchedUsers {
          temStr=st.getName() + "  Age- " + String(st.getAge())  
-         MainTableViewController.models.append(temStr)
-    arrayKids.append(Kid(fromName:st.getName(),fromAge:st.getAge(),fromTimerStart:false,fromTimer:st.getAge()))
+         
+            KIdsArraySinglton.appendKid(fromKid: Kid(fromName:st.getName(),fromAge:st.getAge(),fromTimerStart:false,fromTimer:st.getAge()))
         }
         self.listKIds.delegate = self
         self.listKIds.dataSource = self
         showFirst()
+        if startTimerLbl.isEnabled==false{
+             stopTimer.isEnabled=true
+            
+        }
+        else{
+            stopTimer.isEnabled=false
+        }
+      
+    
     }
     @IBAction func StopTimer(_ sender: UIButton) {
-        for name in arrayKids {
+        for name in KIdsArraySinglton.getArrayKids() {
             if name.getName() == nameKId.text {
                 name.stopTime()
-                name.setTimerEnabled(fromTimer: false)
+               
          }
         }
-        startTimerLbl.isEnabled=true
         
+        startTimerLbl.isEnabled=true
+        stopTimer.isEnabled=false
+        resetButton.isEnabled=true
     }
+    @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var startTimerLbl: UIButton!
     @IBOutlet weak var nameKId: UILabel!
-    @IBOutlet weak var resetButton: UILabel!
+   
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return arrayKids.count
+        return KIdsArraySinglton.getArrayKids().count
     }
     func refersh() {
-        for name in arrayKids {
+        for name in KIdsArraySinglton.getArrayKids() {
             if name.getTimerEnabled()==true && nameKId.text == name.getName() {
                 time=name.getTime()
                 
@@ -93,8 +131,9 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                 default:
                     minutes2.text="0"
                     minutes1.text=String(time)
-                    if minutes2.text=="0" && minutes1.text=="0" {
+                    if minutes2.text=="0" && minutes1.text=="0"  && secondsLbl.text == "0" {
                         startTimerLbl.isEnabled=true
+                        stopTimer.isEnabled = false
                     }
                     
                 }
@@ -103,14 +142,14 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         }
     }
     @objc func runTimedSecCode(){
-        for name in arrayKids {
+        for name in KIdsArraySinglton.getArrayKids() {
             if name.getTimerEnabled()==true && nameKId.text == name.getName() {
                 secondsLbl.text=String(name.getSeconds())
             }
         }
     }
      @objc func runTimedCode(){
-        for name in arrayKids {
+        for name in KIdsArraySinglton.getArrayKids() {
             if name.getTimerEnabled()==true && nameKId.text == name.getName() {
                 time=name.getTime()
               
@@ -127,8 +166,11 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                 default:
                     minutes2.text="0"
                     minutes1.text=String(time)
-                    if minutes2.text=="0" && minutes1.text=="0" {
+                    if minutes2.text=="0" && minutes1.text=="0" && secondsLbl.text=="0" {
                         startTimerLbl.isEnabled=true
+                        stopTimer.isEnabled = false
+                        resetButton.isEnabled = true
+                        name.setTimerexpired(fromtimerExpired: true)
                                           }
                     
                 }
@@ -136,14 +178,13 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                 }
         }
             
-            for name in arrayKids {
+            for name in KIdsArraySinglton.getArrayKids() {
                 if name.isTimerExpired == true {
                    if semp == false {
                     name.isTimerExpired=false
-                   
-                        
+                    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [name.getName()])
                     semp=true
-               let alertController = UIAlertController(title: "Timeout finished", message: "Timeout finished for" + name.getName(), preferredStyle: .alert)
+               let alertController = UIAlertController(title: "Timeout finished", message: "Timeout finished for - " + name.getName(), preferredStyle: .alert)
                    
                 //then we create a default action for the alert...
                 //It is actually a button and we have given the button text style and handler
@@ -155,11 +196,29 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                 //now we are adding the default action to our alertcontroller
                 alertController.addAction(defaultAction)
                 alertController.isModalInPopover = true
-                
+                    let systemSoundID: SystemSoundID = 1304
+                    
+                    // to play sound
+                    AudioServicesPlaySystemSound (systemSoundID)
                 //and finally presenting our alert using this method
                     present(alertController, animated: true, completion: {
-                      
+                    
                         print("Done🔨") })
+                    secondsLbl.text = "0"
+                    startTimerLbl.isEnabled=false
+                    stopTimer.isEnabled = false
+                    resetButton.isEnabled = true
+                    
+                    for name in KIdsArraySinglton.getArrayKids() {
+                        if name.getName()==nameKId.text{
+                            name.setTimerEnabledOnly(fromTimer: false)
+                            name.setTime(frimTime: time);
+                            name.setSeconds(seconds: 60)
+                            //displayTimer.invalidate()
+                            name.disableTimer()
+                            name.stopTime()
+                        }
+                    }
                     }
                    
                 }
@@ -172,15 +231,15 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     }
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        nameKId.text=arrayKids[row].getName()
-        if arrayKids[row].getTimerEnabled()==false{
+        nameKId.text=KIdsArraySinglton.getArrayKids()[row].getName()
+        if KIdsArraySinglton.getArrayKids()[row].getTimerEnabled()==false{
             startTimerLbl.isEnabled=true
             
         }
         else{
             startTimerLbl.isEnabled=false
         }
-        time=arrayKids[row].getTime()
+        time=KIdsArraySinglton.getArrayKids()[row].getTime()
         switch time{
         case 12:
             minutes2.text="1"
@@ -195,47 +254,52 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
             minutes2.text="0"
             minutes1.text=String(time)
         }
-        if minutes2.text=="0" && minutes1.text=="0" {
+        if minutes2.text=="0" && minutes1.text=="0" && secondsLbl.text=="0" {
             startTimerLbl.isEnabled=true
+            stopTimer.isEnabled = false
             
         }
-        secondsLbl.text=String(arrayKids[row].getSeconds())
+        secondsLbl.text=String(KIdsArraySinglton.getArrayKids()[row].getSeconds())
+       
         
     }
     func showFirst(){
         var index=picker.selectedRow(inComponent: 0)
-        if arrayKids.count > 0
+        if KIdsArraySinglton.getArrayKids().count > 0
         {
-        time=arrayKids[index].getTime()
+        time=KIdsArraySinglton.getArrayKids()[index].getTime()
         switch time{
         case 12:
             minutes2.text="1"
-            minutes1.text="2"
+            minutes1.text="1"
         case 11:
             minutes2.text="1"
-            minutes1.text="1"
+            minutes1.text="0"
         case 10:
-            minutes2.text="1"
+            minutes2.text="9"
             minutes1.text="0"
         default:
             minutes2.text="0"
+            
             minutes1.text=String(time)
         }
-        if minutes2.text=="0" && minutes1.text=="0" {
+        if minutes2.text=="0" && minutes1.text=="0" && secondsLbl.text=="0" {
             startTimerLbl.isEnabled=true
+            stopTimer.isEnabled = false
             
         }
-        secondsLbl.text=String(arrayKids[0].getSeconds())
+        secondsLbl.text=String(KIdsArraySinglton.getArrayKids()[0].getSeconds())
+        nameKId.text = KIdsArraySinglton.getArrayKids()[0].getName()
         }
     }
    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
     
     
-        return arrayKids[row].getName()
+        return KIdsArraySinglton.getArrayKids()[row].getName()
     }
     var  time=12
     var gameTimer: Timer!
-    var arrayKids = [Kid]()
+    
     var models = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -264,18 +328,19 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var minutes2: UILabel!
     @IBOutlet weak var minutes1: UILabel!
     
+    @IBOutlet weak var stopTimer: UIButton!
     @IBAction func startTimer(_ sender: UIButton) {
         let realm = try! Realm()
-        var dateStr = "2018-05-10"
+     /*  var dateStr = "2018-05-10"
         
         // Set date format
         var dateFmt = DateFormatter()
         dateFmt.timeZone = NSTimeZone.default
-        dateFmt.dateFormat =  "yyyy-MM-dd"
+        dateFmt.dateFormat =  "yyyy-MM-dd"*/
         
         // Get NSDate for the given string
-        let date = dateFmt.date(from: dateStr)
-        for name in arrayKids {
+        //let date = dateFmt.date(from: dateStr)
+        for name in KIdsArraySinglton.getArrayKids() {
             if name.getName() == nameKId.text {
                 let kid=KidsTimeOutRealm(fromName:name.getName(),fromDate: Date())
                
@@ -287,6 +352,18 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                 }
                  name.setTimerEnabled(fromTimer:true)
                  startTimerLbl.isEnabled=false
+                 stopTimer.isEnabled=true
+                 resetButton.isEnabled=false
+                let content = UNMutableNotificationContent()
+                content.title = "Timout Over"
+                content.body = "Time Out Over for - " + (nameKId.text)!
+                content.sound = UNNotificationSound.default()
+                
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(name.getTime()*60+name.getSeconds()), repeats: false)
+                
+                let request = UNNotificationRequest(identifier: name.getName(), content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                
             }
         }
         

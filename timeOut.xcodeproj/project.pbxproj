@@ -29,6 +29,7 @@
 		5BF13FF6205EF87A00D1E5A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF13FF4205EF87A00D1E5A5 /* LaunchScreen.storyboard */; };
 		5BF14001205EF87A00D1E5A5 /* timeOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF14000205EF87A00D1E5A5 /* timeOutTests.swift */; };
 		5BF1400C205EF87A00D1E5A5 /* timeOutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF1400B205EF87A00D1E5A5 /* timeOutUITests.swift */; };
+		5BFE0A4920B9AD5E0081D967 /* KIdsArraySinglton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE0A4820B9AD5E0081D967 /* KIdsArraySinglton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		5BF14007205EF87A00D1E5A5 /* timeOutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = timeOutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF1400B205EF87A00D1E5A5 /* timeOutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeOutUITests.swift; sourceTree = "<group>"; };
 		5BF1400D205EF87A00D1E5A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BFE0A4820B9AD5E0081D967 /* KIdsArraySinglton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KIdsArraySinglton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 		5BF13FE7205EF87A00D1E5A5 /* timeOut */ = {
 			isa = PBXGroup;
 			children = (
+				5BFE0A4820B9AD5E0081D967 /* KIdsArraySinglton.swift */,
 				5B859BE2209F2E87005B2DFE /* Charts.xcodeproj */,
 				5BF13FE8205EF87A00D1E5A5 /* AppDelegate.swift */,
 				5BF13FEA205EF87A00D1E5A5 /* ViewController.swift */,
@@ -382,6 +385,7 @@
 			files = (
 				5BAEDED2208AE5CA00584DA5 /* DetailTableViewController.swift in Sources */,
 				5B67644D2095842D00F61578 /* DateTimeOut.swift in Sources */,
+				5BFE0A4920B9AD5E0081D967 /* KIdsArraySinglton.swift in Sources */,
 				5BE0ABA020903DBA00B040EE /* kidRealm.swift in Sources */,
 				5BA2E10920A70E2700D98E47 /* KidsTimeOutRealm.swift in Sources */,
 				5B567DCF2060B44800ECC6B5 /* Kid.swift in Sources */,

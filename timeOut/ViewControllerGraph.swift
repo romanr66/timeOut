@@ -17,6 +17,31 @@ class ViewControllerGraph: UIViewController {
     var dataSet: BarChartDataSet!
     var values =  [Double]()
     weak var axisFormatDelegate: IAxisValueFormatter?
+   override func viewWillAppear(_ animated: Bool) {
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.all)
+        
+    }
+    @IBOutlet weak var stackV: UIStackView!
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            var  frm : CGRect = self.stackV.frame
+            frm.size.height = self.stackV.frame.height / 2.0
+            self.stackV.frame = frm;
+
+            //stackV.axis = .horizontal
+          //  stackV.center = CGPoint(x: (UIScreen.main.bounds.width / 2), y: (UIScreen.main.bounds.height / 8))
+            barChart.data?.notifyDataChanged()
+            barChart.notifyDataSetChanged()
+            barChart.setNeedsDisplay()
+            
+        }
+        else
+        {
+             stackV.axis = .horizontal
+        }
+        
+        
+    }
     func GetDateFromString(DateStr: String)-> Date
     {
         let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)

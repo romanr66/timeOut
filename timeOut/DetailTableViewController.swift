@@ -9,21 +9,30 @@
 import UIKit
 import RealmSwift
 class DetailTableViewController: UITableViewController {
-
+    var tempName : String = ""
     @IBOutlet weak var kidsAgeText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         if (index == nil) {
            index=0
         }
-        var st = modelArray[index]
-        editModelTextField.text = modelArray[index]
+        
+        let st=modelArray[index].components(separatedBy: " ")
+        if(st[0] != ""){
+          tempName = st[0]
+          editModelTextField.text = st[0]
+           kidsAgeText.text = st[2]
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait)
+        
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         if indexPath.section == 0 && indexPath.row == 0 {
@@ -102,19 +111,62 @@ class DetailTableViewController: UITableViewController {
     // MARK: - Navigation
 
    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    @IBAction func ageFieldChanged(_ sender: UITextField) {
+        guard let string = sender.text else { return }
+        let c = string.suffix(1)
+        if(string.count==0){
+            sender.text = ""
+        }
+        else{
+        if ( !("0"..."9" ~= c)) {
+            let index = string.index(string.startIndex, offsetBy: string.count-1)
+             let sub = string[string.startIndex..<index]
+             sender.text =  String(sub)
+        }
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let realm = try! Realm()
         if segue.identifier == "save" {
-            editedModel = editModelTextField.text! + "  Age- " + kidsAgeText.text!
-            try! realm.write() {
-                let kid = kidRealm(fromName: editModelTextField.text!,fromAge:Int(kidsAgeText.text!)!)
-                realm.add(kid)
+            if(kidsAgeText.text?.count==0){
+                 editedModel = editModelTextField.text! + "  Age- 0"
             }
+            else {
+                editedModel = editModelTextField.text! + "  Age- " + kidsAgeText.text!
+            }
+            let kid = realm.objects(kidRealm.self).filter("name = %@", tempName)
+            
+           
+            if kid.count != 0 {
+                try! realm.write {
+                    kid.first?.name = editModelTextField.text!
+                    if(kidsAgeText.text?.count==0)
+                    {
+                      kid.first?.age = 0
+                    }
+                    else{
+                      kid.first?.age = Int(kidsAgeText.text!)!
+                    }
+            }
+           
         }
+            else
+            {
+                let kid3 = kidRealm(fromName:editModelTextField.text!, fromAge: Int(kidsAgeText.text!)!)
+                try! realm.write {
+                    kid3.name = editModelTextField.text!
+                    kid3.age = Int(kidsAgeText.text!)!
+                    realm.add(kid3)
+                    KIdsArraySinglton.appendKid(fromKid: Kid(fromName: kid3.getName(),fromAge:kid3.getAge(), fromTimerStart: false, fromTimer: 0))
+                   
+                }
+            }
         
         
+    }
     }
  
 

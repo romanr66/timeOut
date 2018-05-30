@@ -34,7 +34,7 @@ class Kid{
     public func setTimerexpired(fromtimerExpired time:Bool){
         self.isTimerExpired=time
     }
-    var timeOutTimer: Timer!
+    
     private var time : Int=0
     public  func  getTime() ->Int {
      return time
@@ -55,26 +55,39 @@ class Kid{
         self.age=age
     }
     public func resetAge(){
-        self.time=age
+        self.time=age-1
     }
     private var startTimer:Bool
     public func getTimerEnabled () -> Bool {
         return startTimer;
     }
     public func stopTime(){
-        timeOutTimer.invalidate()
+      
+         if displayTimerSec != nil {
+                  displayTimerSec.invalidate()
+                  displayTimerSec = nil
+        }
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        
         
     }
     public func setTimerEnabledOnly(fromTimer timer:Bool)
     {
       startTimer=timer
     }
+    public func disableTimer(){
+        if displayTimerSec != nil {
+            displayTimerSec.invalidate()
+            displayTimerSec = nil
+        }
+        
+    }
     public func setTimerEnabled (fromTimer timer:Bool) {
         self.isTimerExpired=false
         startTimer=timer;
-        
+        if displayTimerSec == nil {
          displayTimerSec = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCodeSec), userInfo: nil, repeats: true)
-        timeOutTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+        }
         let notif = UNMutableNotificationContent()
         notif.title = "TimeOut App !"
         notif.subtitle = "Timer Expired!"
@@ -88,7 +101,7 @@ class Kid{
             timeTemp=time
             
         }
-        let notifTrigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(timeTemp*60), repeats: false)
+        let notifTrigger = UNTimeIntervalNotificationTrigger(timeInterval: Double((timeTemp*60)+seconds), repeats: false)
         let request = UNNotificationRequest(identifier: name, content:  notif, trigger: notifTrigger)
         
         UNUserNotificationCenter.current().add(request) { (error) in
@@ -110,7 +123,7 @@ class Kid{
             self.time=0
         }
         else {
-               self.time=time
+               self.time=time-1
         }
         timeWentToSleep=NSDate()
         
@@ -122,24 +135,25 @@ class Kid{
         seconds = seconds - 1
         if seconds == 0 && time > 0{
             seconds = 60
-            
+            time=time-1
         }
-       
+        if (time==0 && seconds==0)
+        {
+           
+            self.isTimerExpired=true
+            displayTimerSec.invalidate()
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            seconds = 0
+        }
     }
     @objc func runTimedCode(){
         if(time > 0){
-          time=time-1
+          
             if(time==1){
                 time=0
             }
         }
-        if (time==0 && seconds==0)
-        {
-            timeOutTimer.invalidate()
-            self.isTimerExpired=true
-            displayTimerSec.invalidate()
-             seconds = 0
-        }
+        
             
            
     }
