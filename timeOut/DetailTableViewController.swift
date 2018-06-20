@@ -141,6 +141,17 @@ class DetailTableViewController: UITableViewController {
             
            
             if kid.count != 0 {
+                var index : Int = 0
+                for kid in KIdsArraySinglton.getArrayKids(){
+                    if kid.getName() == tempName {
+                        KIdsArraySinglton.getArrayKids()[index].setAge(formAge: Int(kidsAgeText.text!)!)
+                        KIdsArraySinglton.getArrayKids()[index].setName(fromName: editModelTextField.text!)
+                    }
+                    else {
+                        index = index + 1
+                    }
+                    
+                }
                 try! realm.write {
                     kid.first?.name = editModelTextField.text!
                     if(kidsAgeText.text?.count==0)

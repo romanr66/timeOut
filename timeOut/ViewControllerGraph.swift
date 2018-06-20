@@ -55,6 +55,7 @@ class ViewControllerGraph: UIViewController {
         
         return date!
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

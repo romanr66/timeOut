@@ -343,13 +343,17 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         for name in KIdsArraySinglton.getArrayKids() {
             if name.getName() == nameKId.text {
                 let kid=KidsTimeOutRealm(fromName:name.getName(),fromDate: Date())
-               
+                
                 
                // let dateTimeOut = DateTimeOut(fromDate:date!)
                
                  try! realm.write {
-                     realm.add(kid)
+                    kid.id=999
+                    kid.name=name.getName()
+                    realm.add(kid)
+                    try! realm.commitWrite() 
                 }
+               
                  name.setTimerEnabled(fromTimer:true)
                  startTimerLbl.isEnabled=false
                  stopTimer.isEnabled=true

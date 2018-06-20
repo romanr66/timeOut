@@ -8,8 +8,22 @@
 
 import UIKit
 
-class graphTimeOutViewController: UIViewController {
-
+class graphTimeOutViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return KIdsArraySinglton.getArrayKids().count
+    }
+   
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        
+        return KIdsArraySinglton.getArrayKids()[row].getName()
+    }
+    var kidsFirstName : String = ""
+    @IBOutlet weak var kidsPicker: UIPickerView!
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     var isStartDateFocus : Bool = false
     @IBAction func editStartDate(_ sender: UITextField) {
@@ -21,10 +35,25 @@ class graphTimeOutViewController: UIViewController {
     
     @IBOutlet weak var GrapthBtn: UIButton!
     @IBAction func GraphDoBtn(_ sender: Any) {
-        performSegue(withIdentifier: "graph", sender: 0)
+        if trendSwitch.isOn == true {
+            performSegue(withIdentifier: "graphChartLine", sender: 0)
+        }
+        else {
+             performSegue(withIdentifier: "graph", sender: 0)
+        }
     }
     @IBAction func doneBtn(_ sender: UIButton) {
         viewContainerDate.isHidden = true
+    }
+    @IBOutlet weak var trendSwitch: UISwitch!
+    @IBAction func trendSwitchAction(_ sender: Any) {
+        if trendSwitch.isOn == true {
+        kidsPicker.isHidden = false
+     }
+        else
+        {
+             kidsPicker.isHidden = true
+        }
     }
     @IBOutlet weak var viewContainerDate: UIView!
     @IBOutlet weak var startDateTxt: UITextField!
@@ -35,19 +64,31 @@ class graphTimeOutViewController: UIViewController {
         AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait)
         
     }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent  component: Int) {
+        kidsFirstName = KIdsArraySinglton.getArrayKids()[row].getName()
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print(segue.identifier)
+          if trendSwitch.isOn == true {
+            let viewControllerLineChart = segue.destination as! lineChartViewControllerGraphViewController
+            viewControllerLineChart.startDate = startDateTxt.text!
+            viewControllerLineChart.endDate = endDateTxt.text!
+            viewControllerLineChart.kidFirstName = kidsFirstName
+        }
+          else {
         let viewControllerGraph = segue.destination as! ViewControllerGraph
         
           
-        
+         
           viewControllerGraph.startDate = startDateTxt.text!
           viewControllerGraph.endDate = endDateTxt.text!
+    }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         isStartDateFocus = false
-    
+        self.kidsPicker.delegate = self
+        self.kidsPicker.dataSource = self
         viewContainerDate.isHidden = true
        datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(self.changeDate(sender:)),for: .valueChanged)

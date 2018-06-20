@@ -16,6 +16,7 @@
 		5BA2E10920A70E2700D98E47 /* KidsTimeOutRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA2E10820A70E2700D98E47 /* KidsTimeOutRealm.swift */; };
 		5BAEDED02086F9D500584DA5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAEDECF2086F9D500584DA5 /* MainTableViewController.swift */; };
 		5BAEDED2208AE5CA00584DA5 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAEDED1208AE5CA00584DA5 /* DetailTableViewController.swift */; };
+		5BB0F96820BE5CCF00297496 /* lineChartViewControllerGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB0F96720BE5CCF00297496 /* lineChartViewControllerGraphViewController.swift */; };
 		5BE0AB9B20903A5000B040EE /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0AB9920903A4C00B040EE /* RealmSwift.framework */; };
 		5BE0AB9C20903A5000B040EE /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0AB9920903A4C00B040EE /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5BE0AB9D20903A5000B040EE /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0AB9A20903A5000B040EE /* Realm.framework */; };
@@ -95,6 +96,7 @@
 		5BA2E10820A70E2700D98E47 /* KidsTimeOutRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsTimeOutRealm.swift; sourceTree = "<group>"; };
 		5BAEDECF2086F9D500584DA5 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		5BAEDED1208AE5CA00584DA5 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		5BB0F96720BE5CCF00297496 /* lineChartViewControllerGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lineChartViewControllerGraphViewController.swift; sourceTree = "<group>"; };
 		5BE0AB9920903A4C00B040EE /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		5BE0AB9A20903A5000B040EE /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		5BE0AB9F20903DBA00B040EE /* kidRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kidRealm.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				5B67644C2095842D00F61578 /* DateTimeOut.swift */,
 				5B6ED0C9209F9B6300F5F8C0 /* ViewControllerGraph.swift */,
 				5BA2E10820A70E2700D98E47 /* KidsTimeOutRealm.swift */,
+				5BB0F96720BE5CCF00297496 /* lineChartViewControllerGraphViewController.swift */,
 			);
 			path = timeOut;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				5BFE0A4920B9AD5E0081D967 /* KIdsArraySinglton.swift in Sources */,
 				5BE0ABA020903DBA00B040EE /* kidRealm.swift in Sources */,
 				5BA2E10920A70E2700D98E47 /* KidsTimeOutRealm.swift in Sources */,
+				5BB0F96820BE5CCF00297496 /* lineChartViewControllerGraphViewController.swift in Sources */,
 				5B567DCF2060B44800ECC6B5 /* Kid.swift in Sources */,
 				5BF13FF1205EF87A00D1E5A5 /* timeOut.xcdatamodeld in Sources */,
 				5BF13FEB205EF87A00D1E5A5 /* ViewController.swift in Sources */,

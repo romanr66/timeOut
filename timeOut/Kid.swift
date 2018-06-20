@@ -47,6 +47,9 @@ class Kid{
     public func getName () -> String {
         return name;
     }
+    public func setName(fromName name:String){
+        self.name = name
+    }
     @objc private  dynamic var age :Int = 0
     public func getAge () -> Int {
         return age;

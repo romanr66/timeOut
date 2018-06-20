@@ -10,8 +10,13 @@ import UIKit
 import RealmSwift
 class KidsTimeOutRealm: Object {
        @objc dynamic  var date = Date()
-       @objc dynamic  var name = ""
+    @objc dynamic  var name:String = ""
+    @objc dynamic   var id:Int=0;
        var countTimeOut = 0;
+   @objc  dynamic var personID = UUID().uuidString
+    override static func primaryKey() -> String? {
+        return "personID"
+    }
     convenience init(fromName  name : String, fromDate date:Date) {
         self.init()
         self.name = name
