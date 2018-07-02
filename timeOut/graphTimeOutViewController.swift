@@ -12,6 +12,7 @@ class graphTimeOutViewController: UIViewController,UIPickerViewDelegate, UIPicke
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+  
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return KIdsArraySinglton.getArrayKids().count
     }
@@ -35,7 +36,15 @@ class graphTimeOutViewController: UIViewController,UIPickerViewDelegate, UIPicke
     
     @IBOutlet weak var GrapthBtn: UIButton!
     @IBAction func GraphDoBtn(_ sender: Any) {
-        if trendSwitch.isOn == true {
+        if(startDateTxt.text == "" || endDateTxt.text == "") {
+            let alertController = UIAlertController(title: "Warning", message:
+                "Date field can't be empty", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+        else if trendSwitch.isOn == true {
             performSegue(withIdentifier: "graphChartLine", sender: 0)
         }
         else {
@@ -62,6 +71,8 @@ class graphTimeOutViewController: UIViewController,UIPickerViewDelegate, UIPicke
     @IBOutlet weak var editText: UITextField!
     override func viewWillAppear(_ animated: Bool) {
         AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait)
+        self.kidsPicker.delegate = self
+        self.kidsPicker.dataSource = self
         
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent  component: Int) {
@@ -86,6 +97,7 @@ class graphTimeOutViewController: UIViewController,UIPickerViewDelegate, UIPicke
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         isStartDateFocus = false
         self.kidsPicker.delegate = self
         self.kidsPicker.dataSource = self

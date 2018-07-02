@@ -11,8 +11,24 @@ import UIKit
 class KIdsArraySinglton {
     static let sharedInstance = KIdsArraySinglton()
     private static var arrayKids = [Kid]()
+    private static var startForground = false
+    static func getStartForground() -> Bool{
+       return startForground
+    }
+    static func setStartForground(fromFroground forground:Bool ){
+        self.startForground = forground
+    }
     static func appendKid(fromKid kid:Kid){
         arrayKids.append(kid)
+    }
+    static func isEmpty() -> Bool{
+        if arrayKids.count == 0 {
+          return true
+        }
+        else
+        {
+            return false
+        }
     }
     static func getArrayKids() -> Array<Kid>
     {

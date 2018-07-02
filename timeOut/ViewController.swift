@@ -50,11 +50,56 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                 name.setTime(frimTime: time);
                 name.setSeconds(seconds: 60)
             }
+            
+        }
+        for n in 1...KIdsArraySinglton.getArrayKids().count {
+            if KIdsArraySinglton.getArrayKids()[n-1].getName() == nameKId.text {
+                     KIdsArraySinglton.getArrayKids()[n-1].startBtnEnable = true
+                     KIdsArraySinglton.getArrayKids()[n-1].stopBtnEnable = false
+                     KIdsArraySinglton.getArrayKids()[n-1].restBtnEnable = false
+            }
         }
         startTimerLbl.isEnabled=true
     }
     override func viewWillAppear(_ animated: Bool) {
         AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
+        var row : Int = 0
+        if KIdsArraySinglton.getArrayKids().isEmpty == false {
+            if let aComponent = picker?.selectedRow(inComponent: 0) {
+                row = aComponent
+            }
+            nameKId.text=KIdsArraySinglton.getArrayKids()[row].getName()
+           let temp = nameKId.text
+            time=KIdsArraySinglton.getArrayKids()[row].getTime()
+            startTimerLbl.isEnabled = KIdsArraySinglton.getArrayKids()[row].startBtnEnable
+             stopTimer.isEnabled = KIdsArraySinglton.getArrayKids()[row].stopBtnEnable
+            resetButton.isEnabled =  KIdsArraySinglton.getArrayKids()[row].restBtnEnable
+            switch time{
+            case 12:
+                minutes2.text="1"
+                minutes1.text="2"
+            case 11:
+                minutes2.text="1"
+                minutes1.text="1"
+            case 10:
+                minutes2.text="1"
+                minutes1.text="0"
+            default:
+                minutes2.text="0"
+                minutes1.text=String(time)
+            }
+            if minutes2.text=="0" && minutes1.text=="0" && secondsLbl.text=="0" {
+                startTimerLbl.isEnabled=true
+                stopTimer.isEnabled = false
+                KIdsArraySinglton.getArrayKids()[row].startBtnEnable = true
+                KIdsArraySinglton.getArrayKids()[row].stopBtnEnable = false
+                KIdsArraySinglton.getArrayKids()[row].restBtnEnable = true
+                
+                
+                
+            }
+            secondsLbl.text=String(KIdsArraySinglton.getArrayKids()[row].getSeconds())
+        }
        
     }
     func applicationWillEnterForeground(application: UIApplication) {
@@ -73,24 +118,20 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let matchedUsers = try! Realm().objects(kidRealm.self)
-        KIdsArraySinglton.removeAll()
-        var temStr:String
-        for st in matchedUsers {
-         temStr=st.getName() + "  Age- " + String(st.getAge())  
-         
-            KIdsArraySinglton.appendKid(fromKid: Kid(fromName:st.getName(),fromAge:st.getAge(),fromTimerStart:false,fromTimer:st.getAge()))
+        if KIdsArraySinglton.isEmpty() == true {
+            let matchedUsers = try! Realm().objects(kidRealm.self)
+            KIdsArraySinglton.removeAll()
+            var temStr:String
+            for st in matchedUsers {
+             temStr=st.getName() + "  Age- " + String(st.getAge())
+             
+                KIdsArraySinglton.appendKid(fromKid: Kid(fromName:st.getName(),fromAge:st.getAge(),fromTimerStart:false,fromTimer:st.getAge(),fromStartBtn:true , fromStopBtn: false,  fromRestBtn: false))
+            }
         }
         self.listKIds.delegate = self
         self.listKIds.dataSource = self
         showFirst()
-        if startTimerLbl.isEnabled==false{
-             stopTimer.isEnabled=true
-            
-        }
-        else{
-            stopTimer.isEnabled=false
-        }
+      
       
     
     }
@@ -98,8 +139,16 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         for name in KIdsArraySinglton.getArrayKids() {
             if name.getName() == nameKId.text {
                 name.stopTime()
+              
                
          }
+        }
+        for n in 1...KIdsArraySinglton.getArrayKids().count {
+            if KIdsArraySinglton.getArrayKids()[n-1].getName() == nameKId.text {
+                KIdsArraySinglton.getArrayKids()[n-1].startBtnEnable = true
+                KIdsArraySinglton.getArrayKids()[n-1].stopBtnEnable = false
+                KIdsArraySinglton.getArrayKids()[n-1].restBtnEnable = true
+            }
         }
         
         startTimerLbl.isEnabled=true
@@ -116,6 +165,9 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     func refersh() {
         for name in KIdsArraySinglton.getArrayKids() {
             if name.getTimerEnabled()==true && nameKId.text == name.getName() {
+                startTimerLbl.isEnabled = name.startBtnEnable
+                stopTimer.isEnabled = name.stopBtnEnable
+                resetButton.isEnabled = name.restBtnEnable
                 time=name.getTime()
                 
                 switch time{
@@ -170,6 +222,13 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                         startTimerLbl.isEnabled=true
                         stopTimer.isEnabled = false
                         resetButton.isEnabled = true
+                        for n in 1...KIdsArraySinglton.getArrayKids().count {
+                            if KIdsArraySinglton.getArrayKids()[n-1].getName() == nameKId.text {
+                                KIdsArraySinglton.getArrayKids()[n-1].startBtnEnable = true
+                                KIdsArraySinglton.getArrayKids()[n-1].stopBtnEnable = false
+                                KIdsArraySinglton.getArrayKids()[n-1].restBtnEnable = true
+                            }
+                        }
                         name.setTimerexpired(fromtimerExpired: true)
                                           }
                     
@@ -232,13 +291,11 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         nameKId.text=KIdsArraySinglton.getArrayKids()[row].getName()
-        if KIdsArraySinglton.getArrayKids()[row].getTimerEnabled()==false{
-            startTimerLbl.isEnabled=true
-            
-        }
-        else{
-            startTimerLbl.isEnabled=false
-        }
+        
+        startTimerLbl.isEnabled = KIdsArraySinglton.getArrayKids()[row].startBtnEnable
+        stopTimer.isEnabled  = KIdsArraySinglton.getArrayKids()[row].stopBtnEnable
+        resetButton.isEnabled = KIdsArraySinglton.getArrayKids()[row].restBtnEnable
+        
         time=KIdsArraySinglton.getArrayKids()[row].getTime()
         switch time{
         case 12:
@@ -267,16 +324,28 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         var index=picker.selectedRow(inComponent: 0)
         if KIdsArraySinglton.getArrayKids().count > 0
         {
-        time=KIdsArraySinglton.getArrayKids()[index].getTime()
+            if(KIdsArraySinglton.getStartForground()==true){
+        startTimerLbl.isEnabled = KIdsArraySinglton.getArrayKids()[index].startBtnEnable
+         stopTimer.isEnabled = KIdsArraySinglton.getArrayKids()[index].stopBtnEnable
+         resetButton.isEnabled = KIdsArraySinglton.getArrayKids()[index].restBtnEnable
+        
+            }
+            else
+            {
+                startTimerLbl.isEnabled = true
+                stopTimer.isEnabled = false
+                resetButton.isEnabled = false
+            }
+         time=KIdsArraySinglton.getArrayKids()[index].getTime()
         switch time{
         case 12:
             minutes2.text="1"
-            minutes1.text="1"
+            minutes1.text="2"
         case 11:
             minutes2.text="1"
-            minutes1.text="0"
+            minutes1.text="1"
         case 10:
-            minutes2.text="9"
+            minutes2.text="1"
             minutes1.text="0"
         default:
             minutes2.text="0"
@@ -288,8 +357,8 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
             stopTimer.isEnabled = false
             
         }
-        secondsLbl.text=String(KIdsArraySinglton.getArrayKids()[0].getSeconds())
-        nameKId.text = KIdsArraySinglton.getArrayKids()[0].getName()
+        secondsLbl.text=String(KIdsArraySinglton.getArrayKids()[index].getSeconds())
+        nameKId.text = KIdsArraySinglton.getArrayKids()[index].getName()
         }
     }
    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -316,6 +385,10 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         self.listKIds.dataSource = self
         displayTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
         displaySecondsTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(runTimedSecCode), userInfo: nil, repeats: true)
+        startTimerLbl.isEnabled = true
+        stopTimer.isEnabled = false
+        resetButton.isEnabled = false
+        
         
         
     }
@@ -368,6 +441,13 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                 let request = UNNotificationRequest(identifier: name.getName(), content: content, trigger: trigger)
                 UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
                 
+            }
+        }
+        for n in 1...KIdsArraySinglton.getArrayKids().count {
+            if KIdsArraySinglton.getArrayKids()[n-1].getName() == nameKId.text {
+                KIdsArraySinglton.getArrayKids()[n-1].startBtnEnable = false
+                KIdsArraySinglton.getArrayKids()[n-1].stopBtnEnable = true
+                KIdsArraySinglton.getArrayKids()[n-1].restBtnEnable = false
             }
         }
         

@@ -12,12 +12,16 @@ import UIKit
 import RealmSwift
 class Kid{
     var displayTimerSec: Timer!
+    public var startBtnEnable:Bool = true
+    public var stopBtnEnable:Bool = false
+    public var restBtnEnable:Bool = false
     public var  timeWentToSleep:NSDate;
     var isTimerExpired : Bool = false
     private var seconds:Int=60
     public func getSeconds()->Int{
         return seconds
     }
+    
     public func setSeconds(seconds:Int){
         self.seconds=seconds
     }
@@ -118,7 +122,7 @@ class Kid{
     }
             
  
-    init(fromName name:String,fromAge age:Int , fromTimerStart startTimer:Bool, fromTimer time:Int){
+    init(fromName name:String,fromAge age:Int , fromTimerStart startTimer:Bool, fromTimer time:Int,fromStartBtn:Bool , fromStopBtn: Bool,  fromRestBtn: Bool){
         self.name=name
         self.age=age
         self.startTimer=startTimer
@@ -129,7 +133,9 @@ class Kid{
                self.time=time-1
         }
         timeWentToSleep=NSDate()
-        
+        startBtnEnable = true
+        stopBtnEnable = false
+        restBtnEnable = false
     
     }
     

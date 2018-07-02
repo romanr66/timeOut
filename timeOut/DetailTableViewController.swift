@@ -166,12 +166,14 @@ class DetailTableViewController: UITableViewController {
         }
             else
             {
-                let kid3 = kidRealm(fromName:editModelTextField.text!, fromAge: Int(kidsAgeText.text!)!)
+                let kid3 = kidRealm(fromName:editModelTextField.text!, fromAge: Int(kidsAgeText.text!)!,fromStartBtn: false,fromStopBtn: false,fromRestBtn: false)
                 try! realm.write {
                     kid3.name = editModelTextField.text!
                     kid3.age = Int(kidsAgeText.text!)!
                     realm.add(kid3)
-                    KIdsArraySinglton.appendKid(fromKid: Kid(fromName: kid3.getName(),fromAge:kid3.getAge(), fromTimerStart: false, fromTimer: 0))
+                    let kid = Kid(fromName: kid3.getName(),fromAge:kid3.getAge(), fromTimerStart: false, fromTimer: 0,fromStartBtn: false,fromStopBtn: false,fromRestBtn: false)
+                    kid.setTime(frimTime:kid3.getAge()-1)
+                    KIdsArraySinglton.appendKid(fromKid: kid)
                    
                 }
             }
