@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.026967"
+            timestampString = "552404868.017193"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "139"
             endingLineNumber = "139"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "StopTimer(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.050016"
+            timestampString = "552404868.020013"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "141"
             endingLineNumber = "141"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "StopTimer(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,13 +42,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.050873"
+            timestampString = "552404868.020939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "204"
             endingLineNumber = "204"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "runTimedCode()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,13 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.0520459"
+            timestampString = "552404868.021836"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "254"
             endingLineNumber = "254"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "runTimedCode()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,13 +74,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.053059"
+            timestampString = "552404868.023581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "253"
             endingLineNumber = "253"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "runTimedCode()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -106,13 +106,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.054056"
+            timestampString = "552404868.025184"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "241"
             endingLineNumber = "241"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "runTimedCode()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -122,13 +122,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.0552059"
+            timestampString = "552404868.025946"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "243"
             endingLineNumber = "243"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "runTimedCode()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -138,13 +138,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.0559911"
+            timestampString = "552404868.0261379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "242"
             endingLineNumber = "242"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "runTimedCode()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -154,13 +154,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.056684"
+            timestampString = "552404868.026394"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "262"
             endingLineNumber = "262"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "runTimedCode()"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -234,13 +234,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.057228"
+            timestampString = "552404868.026721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "resetTimer(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -474,13 +474,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.058176"
+            timestampString = "552404868.027393"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "370"
             endingLineNumber = "370"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "ViewController"
+            landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -552,13 +552,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.059003"
+            timestampString = "552404868.027699"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "123"
             endingLineNumber = "123"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -568,13 +568,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.0596189"
+            timestampString = "552404868.027916"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "319"
             endingLineNumber = "319"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -584,13 +584,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.060147"
+            timestampString = "552404868.028187"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "412"
             endingLineNumber = "412"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "startTimer(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -600,13 +600,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.06064"
+            timestampString = "552404868.028464"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "414"
             endingLineNumber = "414"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "startTimer(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -616,13 +616,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/graphTimeOutViewController.swift"
-            timestampString = "552065671.061113"
+            timestampString = "552404868.028753"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -712,13 +712,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/graphTimeOutViewController.swift"
-            timestampString = "552065671.067646"
+            timestampString = "552404868.050054"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -868,7 +868,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/DetailTableViewController.swift"
@@ -888,13 +888,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.068511"
+            timestampString = "552404868.052109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
             endingLineNumber = "126"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -904,13 +904,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.0692739"
+            timestampString = "552404868.052351"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
             endingLineNumber = "125"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1112,13 +1112,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.0701669"
+            timestampString = "552404868.052946"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "354"
             endingLineNumber = "354"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "showFirst()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1128,13 +1128,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.070868"
+            timestampString = "552404868.053074"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "401"
             endingLineNumber = "401"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1160,13 +1160,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.071574"
+            timestampString = "552404868.053262"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "resetTimer(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1192,13 +1192,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.072572"
+            timestampString = "552404868.053448"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "428"
             endingLineNumber = "428"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "startTimer(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1208,13 +1208,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.073601"
+            timestampString = "552404868.053605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "427"
             endingLineNumber = "427"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "startTimer(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1320,13 +1320,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.074585"
+            timestampString = "552404868.053951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
             endingLineNumber = "103"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1336,13 +1336,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.075325"
+            timestampString = "552404868.054121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
             endingLineNumber = "135"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1352,13 +1352,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.076064"
+            timestampString = "552404868.054317"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
             endingLineNumber = "65"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1368,13 +1368,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.076787"
+            timestampString = "552404868.054487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "173"
             endingLineNumber = "173"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "refersh()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1384,13 +1384,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.0775141"
+            timestampString = "552404868.05462"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "109"
             endingLineNumber = "109"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "applicationWillEnterForeground(application:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1400,13 +1400,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.0782911"
+            timestampString = "552404868.054786"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "116"
             endingLineNumber = "116"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "applicationDidBecomeActive(application:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1480,13 +1480,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.079394"
+            timestampString = "552404868.054996"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "197"
             endingLineNumber = "197"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "runTimedSecCode()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1656,39 +1656,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/lineChartViewControllerGraphViewController.swift"
-            timestampString = "551019075.768531"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "timeOut/lineChartViewControllerGraphViewController.swift"
-            timestampString = "551019075.7687"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "GetDateFromString(DateStr:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "timeOut/lineChartViewControllerGraphViewController.swift"
-            timestampString = "551019075.768801"
+            timestampString = "552404868.055568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
@@ -1704,11 +1672,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/lineChartViewControllerGraphViewController.swift"
-            timestampString = "551019075.768906"
+            timestampString = "552404868.05612"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "GetDateFromString(DateStr:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "timeOut/lineChartViewControllerGraphViewController.swift"
+            timestampString = "552404868.056426"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1720,7 +1704,39 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/lineChartViewControllerGraphViewController.swift"
-            timestampString = "551019075.769027"
+            timestampString = "552404868.05676"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "timeOut/lineChartViewControllerGraphViewController.swift"
+            timestampString = "552404868.059172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "timeOut/lineChartViewControllerGraphViewController.swift"
+            timestampString = "552404868.059713"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
@@ -1736,27 +1752,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/lineChartViewControllerGraphViewController.swift"
-            timestampString = "551019075.769119"
+            timestampString = "552404868.060287"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "timeOut/lineChartViewControllerGraphViewController.swift"
-            timestampString = "551019075.769214"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "setChartData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1768,7 +1768,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/KidsTimeOutRealm.swift"
-            timestampString = "551506515.6976579"
+            timestampString = "552227786.40932"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
@@ -1784,7 +1784,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/KidsTimeOutRealm.swift"
-            timestampString = "551506515.697728"
+            timestampString = "552227786.409446"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "12"
@@ -1892,13 +1892,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.080564"
+            timestampString = "552404868.060752"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
             endingLineNumber = "122"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1924,13 +1924,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.081164"
+            timestampString = "552404868.061056"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "418"
             endingLineNumber = "418"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "startTimer(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1956,11 +1956,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/lineChartViewControllerGraphViewController.swift"
-            timestampString = "551019075.769574"
+            timestampString = "552404868.0615129"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1972,13 +1972,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/graphTimeOutViewController.swift"
-            timestampString = "552065671.081678"
+            timestampString = "552404868.061937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
             endingLineNumber = "73"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1988,13 +1988,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/graphTimeOutViewController.swift"
-            timestampString = "552065671.082116"
+            timestampString = "552404868.063665"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
             endingLineNumber = "79"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2004,13 +2004,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.082527"
+            timestampString = "552404868.065243"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "172"
             endingLineNumber = "172"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "refersh()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2020,13 +2020,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.082993"
+            timestampString = "552404868.0654939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "171"
             endingLineNumber = "171"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "refersh()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2036,29 +2036,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.083439"
+            timestampString = "552404868.065715"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
             endingLineNumber = "71"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.083883"
+            timestampString = "552404868.065873"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
             endingLineNumber = "121"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2084,13 +2084,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.084502"
+            timestampString = "552404868.06608"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "325"
             endingLineNumber = "325"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "showFirst()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2100,13 +2100,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.0850151"
+            timestampString = "552404868.066285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "376"
             endingLineNumber = "376"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2116,13 +2116,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.085481"
+            timestampString = "552404868.066497"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "377"
             endingLineNumber = "377"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -2164,13 +2164,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.0860471"
+            timestampString = "552404868.066631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "327"
             endingLineNumber = "327"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "showFirst()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2224,7 +2224,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/DetailTableViewController.swift"
@@ -2244,19 +2244,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.086645"
+            timestampString = "552404868.06699"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
             endingLineNumber = "73"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/DetailTableViewController.swift"
@@ -2272,7 +2272,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/Kid.swift"
@@ -2292,13 +2292,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.087204"
+            timestampString = "552404868.067219"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "446"
             endingLineNumber = "446"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "startTimer(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2308,13 +2308,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.087643"
+            timestampString = "552404868.067399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "447"
             endingLineNumber = "447"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "startTimer(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2324,13 +2324,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "timeOut/ViewController.swift"
-            timestampString = "552065671.08808"
+            timestampString = "552404868.067578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "295"
             endingLineNumber = "295"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "timeOut/Kid.swift"
+            timestampString = "552227824.054078"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "init(fromName:fromAge:fromTimerStart:fromTimer:fromStartBtn:fromStopBtn:fromRestBtn:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "timeOut/lineChartViewControllerGraphViewController.swift"
+            timestampString = "552404868.067836"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "timeOut/lineChartViewControllerGraphViewController.swift"
+            timestampString = "552404868.068238"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -84,7 +84,9 @@ class graphTimeOutViewController: UIViewController,UIPickerViewDelegate, UIPicke
             let viewControllerLineChart = segue.destination as! lineChartViewControllerGraphViewController
             viewControllerLineChart.startDate = startDateTxt.text!
             viewControllerLineChart.endDate = endDateTxt.text!
-            viewControllerLineChart.kidFirstName = kidsFirstName
+            var index=kidsPicker.selectedRow(inComponent: 0)
+            viewControllerLineChart.kidFirstName = KIdsArraySinglton.getArrayKids()[index].getName()
+           // viewControllerLineChart.kidFirstName = kidsFirstName
         }
           else {
         let viewControllerGraph = segue.destination as! ViewControllerGraph

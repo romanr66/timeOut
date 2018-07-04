@@ -47,14 +47,15 @@ class lineChartViewControllerGraphViewController: UIViewController {
         let realm = try! Realm()
         let kidsRes = try! Realm().objects(kidRealm.self)
         var index=0;
+        var name : String
         for kid1 in kidsRes {
             var count : Int = 0
            while (date <= dateEnd){
             
             let res=realm.objects(KidsTimeOutRealm.self)
-          
+            
             for kid2 in res {
-                let name = kid2.getName()
+                if kidFirstName == kid2.getName() {
                let date1 =  kid2.getDate().description
                let date2 = date.description
                let dateIndex1 = date1.index(date1.startIndex, offsetBy: 10)
@@ -65,15 +66,18 @@ class lineChartViewControllerGraphViewController: UIViewController {
                     count = count + 1
                 
                 
-                kidTempHash[index] = Double(count)
-                kidsHash[kid2.getName()] = kidTempHash 
-                index = index + 1
+               
                 }
+              }
                 
             }
             
-                 count = 0
-                 date = add(targetDay: date)
+            
+              kidTempHash[index] = Double(count)
+              kidsHash[kidFirstName] = kidTempHash
+              index = index + 1
+              count = 0
+              date = add(targetDay: date)
             }
             index = 0
         }
@@ -107,7 +111,7 @@ class lineChartViewControllerGraphViewController: UIViewController {
             }
         }
         
-        let dataSet = LineChartDataSet(values: entries, label: "Danny")
+        let dataSet = LineChartDataSet(values: entries, label: kidFirstName)
         dataSet.colors=[UIColor.blue]
         dataSet.drawIconsEnabled = false
         dataSet.iconsOffset = CGPoint(x: 0, y: -10.0)
@@ -122,8 +126,9 @@ class lineChartViewControllerGraphViewController: UIViewController {
        // data.addDataSet(dataSet)
         //barChart = BarChartView(frame: CGRect(x: 0, y: 0, width: 480, height: 350))
         lineChartView.backgroundColor = NSUIColor.clear
-        lineChartView.leftAxis.axisMinimum = 0.0
-        lineChartView.rightAxis.axisMinimum = 0.0
+        lineChartView.leftAxis.axisMinimum = 0
+        lineChartView.rightAxis.axisMinimum = 0
+        
         lineChartView.data = data
         lineChartView.xAxis.labelPosition = .top
         
