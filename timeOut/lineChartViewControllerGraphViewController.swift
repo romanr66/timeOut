@@ -24,6 +24,9 @@ class lineChartViewControllerGraphViewController: UIViewController {
         
         return returnDay
     }
+    override func viewWillAppear(_ animated: Bool) {
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait)
+    }
     func GetDateFromString(DateStr: String)-> Date
     {
         let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)

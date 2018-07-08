@@ -18,7 +18,7 @@ class ViewControllerGraph: UIViewController {
     var values =  [Double]()
     weak var axisFormatDelegate: IAxisValueFormatter?
    override func viewWillAppear(_ animated: Bool) {
-        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.all)
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait)
         
     }
     @IBOutlet weak var stackV: UIStackView!
@@ -116,6 +116,7 @@ class ViewControllerGraph: UIViewController {
    
     @IBOutlet weak var chartView: UIView!
     @IBOutlet weak var barChart: BarChartView!
+  
     func setChart() {
        
         // Sample data
