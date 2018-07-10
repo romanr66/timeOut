@@ -366,7 +366,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     
         return KIdsArraySinglton.getArrayKids()[row].getName()
     }
-    var  time=12
+    var  time=0
     var gameTimer: Timer!
     
     var models = [String]()
