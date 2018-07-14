@@ -235,7 +235,7 @@
                                         <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </pickerView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="uPA-m7-2dO" secondAttribute="bottom" constant="-8" id="9GO-PU-Wej"/>
                                     <constraint firstItem="uPA-m7-2dO" firstAttribute="top" secondItem="oo1-qQ-kJk" secondAttribute="top" id="DSz-kp-HaO"/>
@@ -437,14 +437,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rRJ-2t-oWf" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="43" y="56" width="288" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RIW-jJ-Bou">
-                                <rect key="frame" x="43" y="113" width="288" height="554"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rRJ-2t-oWf" customClass="BarChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="554"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
+                                <rect key="frame" x="0.0" y="113" width="375" height="554"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVV-xQ-XZO">
                                 <rect key="frame" x="100" y="75" width="37" height="30"/>
@@ -459,15 +458,16 @@
                             <constraint firstItem="FVV-xQ-XZO" firstAttribute="leading" secondItem="gHy-L2-nI2" secondAttribute="leading" constant="100" id="5MV-k7-UCs"/>
                             <constraint firstItem="RIW-jJ-Bou" firstAttribute="top" secondItem="FVV-xQ-XZO" secondAttribute="bottom" constant="8" id="G2Z-ED-3GE"/>
                             <constraint firstItem="gHy-L2-nI2" firstAttribute="trailing" secondItem="FVV-xQ-XZO" secondAttribute="trailing" constant="238" id="RWo-hQ-UK4"/>
+                            <constraint firstItem="gHy-L2-nI2" firstAttribute="trailing" secondItem="RIW-jJ-Bou" secondAttribute="trailing" id="ayR-SK-Rcx"/>
                             <constraint firstItem="FVV-xQ-XZO" firstAttribute="top" secondItem="gHy-L2-nI2" secondAttribute="top" constant="11" id="nT9-wF-ogf"/>
+                            <constraint firstItem="RIW-jJ-Bou" firstAttribute="leading" secondItem="gHy-L2-nI2" secondAttribute="leading" id="xld-EX-71O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gHy-L2-nI2"/>
                     </view>
                     <navigationItem key="navigationItem" id="OLV-Ha-Azj"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="barChart" destination="rRJ-2t-oWf" id="0TP-m1-zkW"/>
-                        <outlet property="chartView" destination="rRJ-2t-oWf" id="eae-bT-3WI"/>
+                        <outlet property="barChart" destination="rRJ-2t-oWf" id="fhu-D2-IOF"/>
                         <outlet property="stackV" destination="RIW-jJ-Bou" id="KnY-iE-LDH"/>
                     </connections>
                 </viewController>
@@ -483,14 +483,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="etP-dO-LUH">
-                                <rect key="frame" x="36" y="90" width="323" height="530"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQj-nH-5Tt" customClass="LineChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="0.0" width="323" height="530"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQj-nH-5Tt" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="26" y="68" width="323" height="530"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="etP-dO-LUH">
+                                <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRR-Wu-SlT">
                                 <rect key="frame" x="75" y="35" width="37" height="30"/>
@@ -502,7 +501,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="etP-dO-LUH" firstAttribute="leading" secondItem="oxu-57-Uxy" secondAttribute="leading" id="Ajb-R2-vSx"/>
                             <constraint firstItem="CRR-Wu-SlT" firstAttribute="leading" secondItem="oxu-57-Uxy" secondAttribute="leading" constant="75" id="Bv1-rO-pZN"/>
+                            <constraint firstItem="oxu-57-Uxy" firstAttribute="bottom" secondItem="etP-dO-LUH" secondAttribute="bottom" id="IHZ-bb-uFy"/>
+                            <constraint firstItem="oxu-57-Uxy" firstAttribute="trailing" secondItem="etP-dO-LUH" secondAttribute="trailing" id="Rds-xJ-gDr"/>
                             <constraint firstItem="oxu-57-Uxy" firstAttribute="trailing" secondItem="CRR-Wu-SlT" secondAttribute="trailing" constant="263" id="VHg-21-Lbd"/>
                             <constraint firstItem="etP-dO-LUH" firstAttribute="top" secondItem="CRR-Wu-SlT" secondAttribute="bottom" constant="25" id="Yeb-Om-7Wm"/>
                             <constraint firstItem="CRR-Wu-SlT" firstAttribute="top" secondItem="oxu-57-Uxy" secondAttribute="top" constant="15" id="lt3-Jt-Log"/>

@@ -1,4 +1,4 @@
-//
+ //
 //  ViewControllerGraph.swift
 //  timeOut
 //
@@ -115,13 +115,14 @@ class ViewControllerGraph: UIViewController {
     
    
     @IBOutlet weak var chartView: UIView!
+   
     @IBOutlet weak var barChart: BarChartView!
-  
+    
     func setChart() {
        
         // Sample data
         
-        
+        barChart.chartDescription?.text = ""
         var entries: [ChartDataEntry] = Array()
         
         for (i, value) in values.enumerated()
@@ -145,6 +146,7 @@ class ViewControllerGraph: UIViewController {
         barChart.xAxis.labelPosition = .bottom
         barChart.xAxis.valueFormatter = DefaultAxisValueFormatter(block:{(index,_)in return self.kidsArray[Int(index)]})
         barChart.xAxis.setLabelCount(self.kidsArray.count, force: true)
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

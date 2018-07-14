@@ -122,8 +122,10 @@ class lineChartViewControllerGraphViewController: UIViewController {
             entries1.append(ChartDataEntry(x: Double(index), y: Double(index), icon: UIImage(named: "icon", in: Bundle(for: self.classForCoder), compatibleWith: nil)))
             
         }
-        
-        
+        lineChartView.xAxis.granularityEnabled = true
+        lineChartView.xAxis.granularity = 1.0 //default granularity is 1.0, but it is better to be explicit
+        lineChartView.xAxis.decimals = 0
+        lineChartView.chartDescription?.text = ""
         let data = LineChartData(dataSet: dataSet)
       
        // data.addDataSet(dataSet)
