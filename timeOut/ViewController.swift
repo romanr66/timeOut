@@ -67,6 +67,9 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         if KIdsArraySinglton.getArrayKids().isEmpty == false {
             if let aComponent = picker?.selectedRow(inComponent: 0) {
                 row = aComponent
+                if (KIdsArraySinglton.getArrayKids().count==row) {
+                    row = row - 1
+                }
             }
             nameKId.text=KIdsArraySinglton.getArrayKids()[row].getName()
            let temp = nameKId.text
@@ -422,7 +425,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                
                  try! realm.write {
                     kid.id=999
-                    kid.name=name.getName()
+                    kid.name=name.getName().trimmingCharacters(in: NSCharacterSet.whitespaces)
                     realm.add(kid)
                     try! realm.commitWrite() 
                 }

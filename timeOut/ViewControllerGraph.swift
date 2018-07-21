@@ -67,11 +67,13 @@ class ViewControllerGraph: UIViewController {
         let dateEnd = GetDateFromString(DateStr: endDate)
         var d:Date
         for kid in kids {
+            print(kid.getName());
             for kidR in kidsR {
+                
                 d=kidR.getDate()
                 let name = kidR.getName()
                 if(kidR.getName() == kid.getName()){
-                  if(d>dateStart && d<dateEnd){
+                  if(d>=dateStart && d<=dateEnd){
                    
                     var found = false
                     var index = 0

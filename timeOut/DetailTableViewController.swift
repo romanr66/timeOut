@@ -166,9 +166,9 @@ class DetailTableViewController: UITableViewController {
         }
             else
             {
-                let kid3 = kidRealm(fromName:editModelTextField.text!, fromAge: Int(kidsAgeText.text!)!,fromStartBtn: false,fromStopBtn: false,fromRestBtn: false)
+                let kid3 = kidRealm(fromName:(editModelTextField.text?.trimmingCharacters(in: NSCharacterSet.whitespaces))!, fromAge: Int(kidsAgeText.text!)!,fromStartBtn: false,fromStopBtn: false,fromRestBtn: false)
                 try! realm.write {
-                    kid3.name = editModelTextField.text!
+                    kid3.name = (editModelTextField.text?.trimmingCharacters(in: NSCharacterSet.whitespaces))!
                     kid3.age = Int(kidsAgeText.text!)!
                     realm.add(kid3)
                     let kid = Kid(fromName: kid3.getName(),fromAge:kid3.getAge(), fromTimerStart: false, fromTimer: 0,fromStartBtn: false,fromStopBtn: false,fromRestBtn: false)
