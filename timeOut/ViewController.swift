@@ -142,6 +142,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         for name in KIdsArraySinglton.getArrayKids() {
             if name.getName() == nameKId.text {
                 name.stopTime()
+                name.setTimerEnabledOnly(fromTimer: false)
               
                
          }

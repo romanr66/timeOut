@@ -146,6 +146,8 @@ class DetailTableViewController: UITableViewController {
                     if kid.getName() == tempName {
                         KIdsArraySinglton.getArrayKids()[index].setAge(formAge: Int(kidsAgeText.text!)!)
                         KIdsArraySinglton.getArrayKids()[index].setName(fromName: editModelTextField.text!)
+                        KIdsArraySinglton.getArrayKids()[index].setTime(frimTime: Int(kidsAgeText.text!)!-1)
+                        
                     }
                     else {
                         index = index + 1
