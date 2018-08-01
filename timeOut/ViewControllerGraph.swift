@@ -71,6 +71,7 @@ class ViewControllerGraph: UIViewController {
             for kidR in kidsR {
                 
                 d=kidR.getDate()
+                
                 let name = kidR.getName()
                 if(kidR.getName() == kid.getName()){
                   if(d>=dateStart && d<=dateEnd){

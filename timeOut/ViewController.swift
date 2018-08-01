@@ -21,8 +21,9 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     var displaySecondsTimer: Timer!
     var seconds : Int = 60;
   
-   
-
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
+    }
     @IBAction func resetTimer(_ sender: Any) {
           for name in KIdsArraySinglton.getArrayKids() {
             if name.getName()==nameKId.text{
@@ -64,6 +65,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     override func viewWillAppear(_ animated: Bool) {
         AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
         var row : Int = 0
+        row=CollectionCollectionViewController.rowSelected
         if KIdsArraySinglton.getArrayKids().isEmpty == false {
             if let aComponent = picker?.selectedRow(inComponent: 0) {
                 row = aComponent
