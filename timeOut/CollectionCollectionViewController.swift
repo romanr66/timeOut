@@ -11,11 +11,14 @@ import RealmSwift
 private let reuseIdentifier = "Cell"
 
 class CollectionCollectionViewController: UICollectionViewController {
+    @IBOutlet var myCollectionView: UICollectionView!
     var models : Array<String> = [String]()
 var cellColor = true
     var typeSeq : String = ""
     
     static var rowSelected : Int = 0
+    static var kidSelected : String = ""
+    static var transitionFromCollectionView : Bool = false
     var kids = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +31,15 @@ var cellColor = true
         
         // Do any additional setup after loading the view.
     }
-
+override func viewWillAppear(_ animated: Bool) {
+   DispatchQueue.main.async {
+        self.myCollectionView.reloadData()
+        
+    }
+    
+    
+    
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,6 +66,7 @@ var cellColor = true
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let matchedUsers = try! Realm().objects(kidRealm.self)
         var count : Int = 0
+        kids.removeAll()
         for st in matchedUsers {
             kids.append(st.getName())
             count = count + 1
@@ -67,11 +79,14 @@ var cellColor = true
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor  = UIColor.lightGray
+        for subview in cell.contentView.subviews {
+           subview.removeFromSuperview()
+        }
+        cell.backgroundColor  = UIColor.orange
         // Configure the cell
         if kids[indexPath.row] == "+" {
             var imageTick:UIImage = UIImage(named: "Image-1")!
-            var imageView:UIImageView = UIImageView(frame: CGRect(x: cell.bounds.size.width/3, y: cell.bounds.size.height/3.5, width: 40, height: 40))
+            var imageView:UIImageView = UIImageView(frame: CGRect(x: cell.bounds.size.width/3.5, y: cell.bounds.size.height/4.0, width: 40, height: 40))
             imageView.image = imageTick
             cell.contentView.addSubview(imageView)
             
@@ -81,6 +96,7 @@ var cellColor = true
         let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: 40))
         title.textColor = UIColor.black
         title.text = kids[indexPath.row]
+        CollectionCollectionViewController.kidSelected = title.text!
         title.textAlignment = .center
         cell.contentView.addSubview(title)
         
@@ -107,17 +123,13 @@ var cellColor = true
             performSegue(withIdentifier: "addKideSeq", sender: 0)
         }
         else {
+            CollectionCollectionViewController.transitionFromCollectionView = true
             performSegue(withIdentifier: "collectionSeque", sender: 0)
         }
         return true
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if typeSeq == "+"{
-        print(segue.identifier)
-        let detailViewController = segue.destination as! DetailTableViewController
-        models.append("")
-        detailViewController.modelArray=models
-        }
+        
         
     }
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item

@@ -12,6 +12,7 @@
 		5B6ED0C5209F93BC00F5F8C0 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B859BE8209F2E88005B2DFE /* Charts.framework */; };
 		5B6ED0C6209F93BC00F5F8C0 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B859BE8209F2E88005B2DFE /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B6ED0CA209F9B6300F5F8C0 /* ViewControllerGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6ED0C9209F9B6300F5F8C0 /* ViewControllerGraph.swift */; };
+		5B7AC8F02112BC5A005CDA44 /* ViewControllerAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7AC8EF2112BC5A005CDA44 /* ViewControllerAdd.swift */; };
 		5B89CD9A2099E022006C5FF3 /* graphTimeOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89CD992099E022006C5FF3 /* graphTimeOutViewController.swift */; };
 		5BA2E10920A70E2700D98E47 /* KidsTimeOutRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA2E10820A70E2700D98E47 /* KidsTimeOutRealm.swift */; };
 		5BAEDED02086F9D500584DA5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAEDECF2086F9D500584DA5 /* MainTableViewController.swift */; };
@@ -93,6 +94,7 @@
 		5B567DCE2060B44800ECC6B5 /* Kid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kid.swift; sourceTree = "<group>"; };
 		5B67644C2095842D00F61578 /* DateTimeOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeOut.swift; sourceTree = "<group>"; };
 		5B6ED0C9209F9B6300F5F8C0 /* ViewControllerGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerGraph.swift; sourceTree = "<group>"; };
+		5B7AC8EF2112BC5A005CDA44 /* ViewControllerAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAdd.swift; sourceTree = "<group>"; };
 		5B859BE2209F2E87005B2DFE /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		5B89CD992099E022006C5FF3 /* graphTimeOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = graphTimeOutViewController.swift; sourceTree = "<group>"; };
 		5BA2E10820A70E2700D98E47 /* KidsTimeOutRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsTimeOutRealm.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		5BF13FE7205EF87A00D1E5A5 /* timeOut */ = {
 			isa = PBXGroup;
 			children = (
+				5B7AC8EF2112BC5A005CDA44 /* ViewControllerAdd.swift */,
 				5BDFFA5C2107FE63007F4EEB /* CollectionCollectionViewController.swift */,
 				5BFE0A4820B9AD5E0081D967 /* KIdsArraySinglton.swift */,
 				5B859BE2209F2E87005B2DFE /* Charts.xcodeproj */,
@@ -402,6 +405,7 @@
 				5B567DCF2060B44800ECC6B5 /* Kid.swift in Sources */,
 				5BF13FF1205EF87A00D1E5A5 /* timeOut.xcdatamodeld in Sources */,
 				5BF13FEB205EF87A00D1E5A5 /* ViewController.swift in Sources */,
+				5B7AC8F02112BC5A005CDA44 /* ViewControllerAdd.swift in Sources */,
 				5BAEDED02086F9D500584DA5 /* MainTableViewController.swift in Sources */,
 				5BF13FE9205EF87A00D1E5A5 /* AppDelegate.swift in Sources */,
 				5B89CD9A2099E022006C5FF3 /* graphTimeOutViewController.swift in Sources */,

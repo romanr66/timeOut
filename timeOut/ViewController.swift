@@ -21,14 +21,26 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     var displaySecondsTimer: Timer!
     var seconds : Int = 60;
   
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+    @IBAction func backButton(_ sender: Any) {
+        KIdsArraySinglton.setsSwitchToCollection(fromSwitchToCollection: true)
+        for st in KIdsArraySinglton.getArrayKids() {
+            if (st.getTimerEnabled()==true){
+                
+                st.setTimeWentToSleep(fromDate: NSDate())
+                
+            }
+        }
+        performSegue(withIdentifier: "backToCollectionView", sender: 0)    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
     }
+    
     @IBAction func resetTimer(_ sender: Any) {
           for name in KIdsArraySinglton.getArrayKids() {
             if name.getName()==nameKId.text{
                 name.resetAge()
-            
+         
             time=name.getTime()
             
             switch time{
@@ -62,10 +74,55 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         }
         startTimerLbl.isEnabled=true
     }
+    func returnFromBack(){
+        var array = [Kid]()
+        let now = NSDate()
+        KIdsArraySinglton.setStartForground(fromFroground: true)
+        KIdsArraySinglton.getArrayKids(fromArray: &array)
+        for  (index, element) in array.enumerated() {
+            if (array[index].getTimerEnabled()==true){
+                guard let date = array[index].getTimeWentToSleep() as Date? else {
+                    // date is nil, ignore this entry:
+                    
+                }
+                let dateDiff=now.timeIntervalSince(date)
+                let dateDiffRnd=dateDiff.rounded(.up)
+                var seconds:Double=Double(array[index].getTime()*60+array[index].getSeconds())
+                var totalDiff=seconds-Double(dateDiffRnd)
+                var mins = 0
+                var secs = totalDiff
+                if(totalDiff >= 0){
+                    if totalDiff >= 60 {
+                        mins = Int(totalDiff / 60)
+                        secs = totalDiff - Double(mins * 60)
+                    }
+                    array[index].setTime(frimTime:mins)
+                    array[index].setSeconds(seconds: Int(secs))
+                    
+                }
+                else
+                {
+                    array[index].setTime(frimTime: 0)
+                    array[index].setSeconds(seconds: 0)
+                    array[index].disableTimer()
+                    array[index].setTimerexpired(fromtimerExpired: true)
+                }
+                
+                
+                
+                
+            }
+            // viewController?.refersh()
+        }
+    }
     override func viewWillAppear(_ animated: Bool) {
         AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
         var row : Int = 0
-        row=CollectionCollectionViewController.rowSelected
+        if(KIdsArraySinglton.getSwitchToCollection() == true){
+            returnFromBack()
+            
+        }
+       
         if KIdsArraySinglton.getArrayKids().isEmpty == false {
             if let aComponent = picker?.selectedRow(inComponent: 0) {
                 row = aComponent
@@ -73,6 +130,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                     row = row - 1
                 }
             }
+        
             nameKId.text=KIdsArraySinglton.getArrayKids()[row].getName()
            let temp = nameKId.text
             time=KIdsArraySinglton.getArrayKids()[row].getTime()
@@ -123,7 +181,8 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if KIdsArraySinglton.isEmpty() == true {
+          if(KIdsArraySinglton.getSwitchToCollection() == false){
+            KIdsArraySinglton.setsSwitchToCollection(fromSwitchToCollection: true)
             let matchedUsers = try! Realm().objects(kidRealm.self)
             KIdsArraySinglton.removeAll()
             var temStr:String
@@ -132,10 +191,11 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
              
                 KIdsArraySinglton.appendKid(fromKid: Kid(fromName:st.getName(),fromAge:st.getAge(),fromTimerStart:false,fromTimer:st.getAge(),fromStartBtn:true , fromStopBtn: false,  fromRestBtn: false))
             }
-        }
+        
         self.listKIds.delegate = self
         self.listKIds.dataSource = self
         showFirst()
+        }
       
       
     
@@ -296,6 +356,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     }
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+       
         nameKId.text=KIdsArraySinglton.getArrayKids()[row].getName()
         
         startTimerLbl.isEnabled = KIdsArraySinglton.getArrayKids()[row].startBtnEnable
@@ -327,7 +388,14 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         
     }
     func showFirst(){
+        var row : Int = 0
+        if CollectionCollectionViewController.transitionFromCollectionView == true {
+            row=CollectionCollectionViewController.rowSelected
+            picker.selectRow(row, inComponent: 0, animated: true)
+        }
+        
         var index=picker.selectedRow(inComponent: 0)
+        
         if KIdsArraySinglton.getArrayKids().count > 0
         {
             if(KIdsArraySinglton.getStartForground()==true){
