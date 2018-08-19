@@ -118,6 +118,10 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     override func viewWillAppear(_ animated: Bool) {
         AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
         var row : Int = 0
+        if CollectionCollectionViewController.transitionFromCollectionView == true {
+            row=CollectionCollectionViewController.rowSelected
+            picker.selectRow(row, inComponent: 0, animated: true)
+        }
         if(KIdsArraySinglton.getSwitchToCollection() == true){
             returnFromBack()
             
