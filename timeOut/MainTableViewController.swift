@@ -17,10 +17,13 @@ class MainTableViewController: UITableViewController {
         let index = detailViewController.index
         
         let modelString = detailViewController.editedModel
+        if modelString == nil {
+        }
+        else {
+          models[index] = modelString!
         
-        models[index] = modelString!
-        
-        tableView.reloadData()
+         tableView.reloadData()
+        }
     }
     @IBOutlet var tableView1: UITableView!
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -94,6 +97,7 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tabelCell")
+        
         var leftButton = UIBarButtonItem(title:"Edit", style:UIBarButtonItemStyle.plain,target:self,action:#selector(showEditing))
         self.navigationItem.leftBarButtonItem = leftButton
     }

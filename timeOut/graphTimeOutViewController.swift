@@ -97,9 +97,19 @@ class graphTimeOutViewController: UIViewController,UIPickerViewDelegate, UIPicke
           viewControllerGraph.endDate = endDateTxt.text!
     }
     }
+   
+
     override func viewDidLoad() {
         super.viewDidLoad()
-       datePicker.backgroundColor = .orange
+        
+        datePicker.layer.borderWidth = 2.0
+        datePicker.layer.borderColor = UIColor.darkGray.cgColor
+        kidsPicker.layer.borderWidth = 2.0
+        kidsPicker.layer.borderColor = UIColor.darkGray.cgColor
+        let c = UIColor(red:CGFloat(CFloat(1)),green:CGFloat(0.7),blue:CGFloat(0.1),alpha:CGFloat(0.8))
+        
+        datePicker.backgroundColor = c
+        //datePicker.layer.borderColor = c.cgColor
         isStartDateFocus = false
         self.kidsPicker.delegate = self
         self.kidsPicker.dataSource = self

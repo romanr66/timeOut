@@ -29,6 +29,9 @@ class ViewControllerAdd: UIViewController {
     @IBAction func editName(_ sender: UITextField) {
     }
     @IBAction func saveAction(_ sender: Any) {
+        if nameText.text?.trimmingCharacters(in: NSCharacterSet.whitespaces)=="" || ageText.text?.trimmingCharacters(in: NSCharacterSet.whitespaces)==""{
+        }
+            else {
         let realm = try! Realm()
         let kid3 = kidRealm(fromName:(nameText.text?.trimmingCharacters(in: NSCharacterSet.whitespaces))!, fromAge: Int(ageText.text!)!,fromStartBtn: false,fromStopBtn: false,fromRestBtn: false)
         try! realm.write {
@@ -40,6 +43,7 @@ class ViewControllerAdd: UIViewController {
             KIdsArraySinglton.appendKid(fromKid: kid)
         }
         self.dismiss(animated: true, completion: nil)
+        }
     }
     @objc func goBack() {
         self.dismiss(animated: true, completion: nil)

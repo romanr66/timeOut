@@ -89,6 +89,9 @@ class Kid{
         }
         
     }
+    public func setTimerEnable (fromTimer timer:Bool) {
+        self.isTimerExpired=timer
+    }
     public func setTimerEnabled (fromTimer timer:Bool) {
         self.isTimerExpired=false
         startTimer=timer;

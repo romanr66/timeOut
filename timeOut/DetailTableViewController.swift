@@ -131,6 +131,10 @@ class DetailTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         let realm = try! Realm()
         if segue.identifier == "save" {
+            if kidsAgeText.text?.trimmingCharacters(in: NSCharacterSet.whitespaces)=="" || editModelTextField.text?.trimmingCharacters(in: NSCharacterSet.whitespaces)==""{
+            }
+            else
+            {
             if(kidsAgeText.text?.count==0){
                  editedModel = editModelTextField.text! + "  Age- 0"
             }
@@ -181,6 +185,7 @@ class DetailTableViewController: UITableViewController {
             }
         
         
+    }
     }
     }
  

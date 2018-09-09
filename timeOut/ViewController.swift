@@ -272,44 +272,65 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     }
      @objc func runTimedCode(){
         for name in KIdsArraySinglton.getArrayKids() {
-            if name.getTimerEnabled()==true && nameKId.text == name.getName() {
+            if name.getTimerEnabled()==true  {
                 time=name.getTime()
+               
+                    if name.getTimerEnabled()==true && nameKId.text == name.getName() {
+                      
+                        
+                        switch time{
+                        case 12:
+                            minutes2.text="1"
+                            minutes1.text="2"
+                        case 11:
+                            minutes2.text="1"
+                            minutes1.text="1"
+                        case 10:
+                            minutes2.text="1"
+                            minutes1.text="0"
+                        default:
+                            minutes2.text="0"
+                            minutes1.text=String(time)
+                           
+                            
+                        }
+                     
+                    }
+                
               
-                switch time{
-                case 12:
-                    minutes2.text="1"
-                    minutes1.text="2"
-                case 11:
-                    minutes2.text="1"
-                    minutes1.text="1"
-                case 10:
-                    minutes2.text="1"
-                    minutes1.text="0"
-                default:
-                    minutes2.text="0"
-                    minutes1.text=String(time)
-                    if minutes2.text=="0" && minutes1.text=="0" && secondsLbl.text=="0" {
+                
+                
+                    if name.getTime() == 0 && name.getSeconds()==0 {
                         startTimerLbl.isEnabled=true
                         stopTimer.isEnabled = false
                         resetButton.isEnabled = true
                         for n in 1...KIdsArraySinglton.getArrayKids().count {
-                            if KIdsArraySinglton.getArrayKids()[n-1].getName() == nameKId.text {
+                            if (name.getName()==KIdsArraySinglton.getArrayKids()[n-1].getName()){
                                 KIdsArraySinglton.getArrayKids()[n-1].startBtnEnable = true
                                 KIdsArraySinglton.getArrayKids()[n-1].stopBtnEnable = false
                                 KIdsArraySinglton.getArrayKids()[n-1].restBtnEnable = true
+                               // KIdsArraySinglton.getArrayKids()[n-1].setTimerexpired(fromtimerExpired: true)
+                                //KIdsArraySinglton.getArrayKids()[n-1].setTimerEnable(fromTimer: false)
                             }
+                            
                         }
-                        name.setTimerexpired(fromtimerExpired: true)
+                        
+                       
                                           }
                     
                 }
                 
                 }
-        }
+        
             
             for name in KIdsArraySinglton.getArrayKids() {
                 if name.isTimerExpired == true {
-                   if semp == false {
+                  if true {
+                    for n in 1...KIdsArraySinglton.getArrayKids().count {
+                         if KIdsArraySinglton.getArrayKids()[n-1].getName() == name.getName() {
+                            KIdsArraySinglton.getArrayKids()[n-1].setTimerexpired(fromtimerExpired: false)
+                        }
+                    }
                     name.isTimerExpired=false
                     UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [name.getName()])
                     semp=true
@@ -338,16 +359,15 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                     stopTimer.isEnabled = false
                     resetButton.isEnabled = true
                     
-                    for name in KIdsArraySinglton.getArrayKids() {
-                        if name.getName()==nameKId.text{
+                   
                             name.setTimerEnabledOnly(fromTimer: false)
-                            name.setTime(frimTime: time);
-                            name.setSeconds(seconds: 60)
+                           // name.setTime(frimTime: time);
+                          //  name.setSeconds(seconds: 60)
                             //displayTimer.invalidate()
                             name.disableTimer()
                             name.stopTime()
-                        }
-                    }
+                    
+                    
                     }
                    
                 }
@@ -450,7 +470,19 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     var models = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        picker.layer.borderWidth = 2.0
+        picker.layer.borderColor = UIColor.darkGray.cgColor
         
+        stopTimer.layer.borderWidth = 2.0
+        stopTimer.layer.borderColor=UIColor.darkGray.cgColor
+        stopTimer.widthAnchor.constraint(equalToConstant: startTimerLbl.titleLabel!.intrinsicContentSize.width + 1 * 20.0).isActive = true
+        resetButton.layer.borderWidth = 2.0
+        resetButton.layer.borderColor=UIColor.darkGray.cgColor
+        resetButton.widthAnchor.constraint(equalToConstant: startTimerLbl.titleLabel!.intrinsicContentSize.width + 1 * 20.0).isActive = true
+        startTimerLbl.layer.borderWidth = 2.0
+        startTimerLbl.layer.borderColor=UIColor.darkGray.cgColor
+        startTimerLbl.widthAnchor.constraint(equalToConstant: startTimerLbl.titleLabel!.intrinsicContentSize.width + 1 * 20.0).isActive = true
+        startTimerLbl.layer.cornerRadius = 2.0
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
         }
