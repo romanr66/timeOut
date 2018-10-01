@@ -306,7 +306,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                         resetButton.isEnabled = true
                         for n in 1...KIdsArraySinglton.getArrayKids().count {
                             if (name.getName()==KIdsArraySinglton.getArrayKids()[n-1].getName()){
-                                KIdsArraySinglton.getArrayKids()[n-1].startBtnEnable = true
+                                KIdsArraySinglton.getArrayKids()[n-1].startBtnEnable = false
                                 KIdsArraySinglton.getArrayKids()[n-1].stopBtnEnable = false
                                 KIdsArraySinglton.getArrayKids()[n-1].restBtnEnable = true
                                // KIdsArraySinglton.getArrayKids()[n-1].setTimerexpired(fromtimerExpired: true)
